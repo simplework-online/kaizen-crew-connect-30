@@ -36,6 +36,24 @@ const Services = () => {
     },
     {
       id: 3,
+      title: 'Old Fashioned',
+      category: 'cocktails',
+      description: 'Der zeitlose amerikanische Whiskey-Cocktail',
+      ingredients: ['6 cl Bourbon Whiskey', '1 Zuckerwürfel', '2-3 Spritzer Angostura Bitter', 'Orangenzeste'],
+      preparation: 'Zucker und Bitter im Glas verrühren. Whiskey hinzufügen, mit Eis rühren. Mit Orangenzeste garnieren.',
+      image: 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=300'
+    },
+    {
+      id: 4,
+      title: 'Cosmopolitan',
+      category: 'cocktails',
+      description: 'Der elegante pinke Cocktail aus New York',
+      ingredients: ['4 cl Vodka', '2 cl Triple Sec', '2 cl Cranberry-Saft', '1 cl Limettensaft'],
+      preparation: 'Alle Zutaten mit Eis shaken und in ein gekühltes Martiniglas abseihen. Mit Limettenscheibe garnieren.',
+      image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=300'
+    },
+    {
+      id: 5,
       title: 'Riesling',
       category: 'wine',
       description: 'Deutscher Weißwein mit frischer Säure',
@@ -44,34 +62,7 @@ const Services = () => {
       image: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=300'
     },
     {
-      id: 4,
-      title: 'Weissbier',
-      category: 'beer',
-      description: 'Bayerisches Weißbier richtig serviert',
-      ingredients: ['Temperatur: 6-8°C', 'Glas: Weißbierglas', 'Hefe aufwirbeln'],
-      preparation: 'Glas schräg halten, langsam einschenken, Hefe am Ende aufwirbeln.',
-      image: 'https://images.unsplash.com/photo-1608270586620-248524c67de9?w=300'
-    },
-    {
-      id: 5,
-      title: 'Cappuccino',
-      category: 'coffee',
-      description: 'Perfekter italienischer Cappuccino',
-      ingredients: ['1 Espresso', '120ml Milch', 'Milchschaum'],
-      preparation: 'Espresso zubereiten, Milch aufschäumen und vorsichtig eingießen.',
-      image: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300'
-    },
-    {
       id: 6,
-      title: 'Tischservice Knigge',
-      category: 'service',
-      description: 'Professioneller Service am Tisch',
-      ingredients: ['Rechts servieren', 'Links abräumen', 'Immer freundlich'],
-      preparation: 'Speisen von rechts servieren, Geschirr von links abräumen. Gäste nicht unterbrechen.',
-      image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=300'
-    },
-    {
-      id: 7,
       title: 'Barolo',
       category: 'wine',
       description: 'König der italienischen Rotweine',
@@ -80,13 +71,121 @@ const Services = () => {
       image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=300'
     },
     {
+      id: 7,
+      title: 'Champagne',
+      category: 'wine',
+      description: 'Der französische Schaumwein-Klassiker',
+      ingredients: ['Temperatur: 6-8°C', 'Glas: Champagnerflöte', 'Vorsichtig öffnen'],
+      preparation: 'Flasche schräg halten, Korken langsam drehen. In gekühlte Gläser einschenken.',
+      image: 'https://images.unsplash.com/photo-1549919942-758548af8bf6?w=300'
+    },
+    {
       id: 8,
+      title: 'Sauvignon Blanc',
+      category: 'wine',
+      description: 'Frischer Weißwein mit Gras- und Stachelbeeraromen',
+      ingredients: ['Temperatur: 8-10°C', 'Glas: Weißweinglas', 'Passt zu: Salate, Fisch'],
+      preparation: 'Jung trinken, gut gekühlt servieren. Ideal als Aperitif.',
+      image: 'https://images.unsplash.com/photo-1566288743610-ce3dfe2f3a92?w=300'
+    },
+    {
+      id: 9,
+      title: 'Weissbier',
+      category: 'beer',
+      description: 'Bayerisches Weißbier richtig serviert',
+      ingredients: ['Temperatur: 6-8°C', 'Glas: Weißbierglas', 'Hefe aufwirbeln'],
+      preparation: 'Glas schräg halten, langsam einschenken, Hefe am Ende aufwirbeln.',
+      image: 'https://images.unsplash.com/photo-1608270586620-248524c67de9?w=300'
+    },
+    {
+      id: 10,
       title: 'Pils',
       category: 'beer',
       description: 'Deutsches Pils perfekt gezapft',
       ingredients: ['Temperatur: 6-8°C', 'Glas: Pilsglas', 'Schaumkrone'],
       preparation: 'Glas kalt spülen, langsam zapfen, perfekte Schaumkrone von 2-3cm.',
       image: 'https://images.unsplash.com/photo-1535358562920-69e4d4d9ebe3?w=300'
+    },
+    {
+      id: 11,
+      title: 'IPA',
+      category: 'beer',
+      description: 'India Pale Ale - hopfenbetont und aromatisch',
+      ingredients: ['Temperatur: 7-9°C', 'Glas: IPA-Glas oder Tulpe', 'Hopfenaroma wichtig'],
+      preparation: 'In sauberes Glas einschenken, Schaum fördern für Aromafreisetzung.',
+      image: 'https://images.unsplash.com/photo-1623499817445-ce7b2397e70a?w=300'
+    },
+    {
+      id: 12,
+      title: 'Cappuccino',
+      category: 'coffee',
+      description: 'Perfekter italienischer Cappuccino',
+      ingredients: ['1 Espresso', '120ml Milch', 'Milchschaum'],
+      preparation: 'Espresso zubereiten, Milch aufschäumen und vorsichtig eingießen.',
+      image: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300'
+    },
+    {
+      id: 13,
+      title: 'Espresso',
+      category: 'coffee',
+      description: 'Der italienische Kaffee-Klassiker',
+      ingredients: ['7-9g fein gemahlener Kaffee', 'Brühtemperatur: 90-96°C', 'Extraktionszeit: 25-30 Sek.'],
+      preparation: 'Kaffee fest andrücken, 25ml in 25-30 Sekunden extrahieren. Sofort servieren.',
+      image: 'https://images.unsplash.com/photo-1510707577-a7ad2b60ae2e?w=300'
+    },
+    {
+      id: 14,
+      title: 'Latte Macchiato',
+      category: 'coffee',
+      description: 'Geschichteter Milchkaffee im Glas',
+      ingredients: ['1 Espresso', '200ml Milch', 'Heißer Milchschaum'],
+      preparation: 'Heiße Milch ins Glas, Milchschaum darauf, Espresso langsam durch den Schaum gießen.',
+      image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300'
+    },
+    {
+      id: 15,
+      title: 'Americano',
+      category: 'coffee',
+      description: 'Espresso mit heißem Wasser verlängert',
+      ingredients: ['1-2 Espresso', '120-180ml heißes Wasser', 'Optional: Zucker/Milch'],
+      preparation: 'Espresso zubereiten, mit heißem Wasser aufgießen. Nach Geschmack süßen.',
+      image: 'https://images.unsplash.com/photo-1497636577773-f1231844b336?w=300'
+    },
+    {
+      id: 16,
+      title: 'Tischservice Knigge',
+      category: 'service',
+      description: 'Professioneller Service am Tisch',
+      ingredients: ['Rechts servieren', 'Links abräumen', 'Immer freundlich'],
+      preparation: 'Speisen von rechts servieren, Geschirr von links abräumen. Gäste nicht unterbrechen.',
+      image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=300'
+    },
+    {
+      id: 17,
+      title: 'Weinservice',
+      category: 'service',
+      description: 'Professionelle Weinpräsentation',
+      ingredients: ['Korkenzieher', 'Dekanter', 'Richtige Gläser', 'Serviette'],
+      preparation: 'Wein präsentieren, verkosten lassen, richtige Temperatur beachten. Gläser nie am Kelch anfassen.',
+      image: 'https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=300'
+    },
+    {
+      id: 18,
+      title: 'Barkeeping Basics',
+      category: 'service',
+      description: 'Grundlagen der professionellen Bararbeit',
+      ingredients: ['Saubere Arbeitsfläche', 'Richtige Werkzeuge', 'Frische Zutaten', 'Präzise Messungen'],
+      preparation: 'Mise en place beachten, Gläser vorher kühlen, Garnituren vorbereiten. Immer sauber arbeiten.',
+      image: 'https://images.unsplash.com/photo-1481833761820-0509d3217039?w=300'
+    },
+    {
+      id: 19,
+      title: 'Event-Service',
+      category: 'service',
+      description: 'Service bei größeren Veranstaltungen',
+      ingredients: ['Teamkoordination', 'Zeitmanagement', 'Flexibilität', 'Gastorientierung'],
+      preparation: 'Briefing beachten, Rollen klar verteilen, Notfallpläne bereit halten. Ruhe bewahren.',
+      image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=300'
     }
   ];
 
@@ -105,7 +204,7 @@ const Services = () => {
           <div className="text-center">
             <h1 className="text-5xl font-bold mb-6">Service Lexikon</h1>
             <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              Ihr umfassender Leitfaden für professionellen Service in Gastronomie und Events. 
+              Ihr umfassendes Lexikon für professionellen Service in Gastronomie und Events. 
               Von Cocktail-Rezepten bis hin zu Weinwissen - alles was Sie brauchen.
             </p>
           </div>
