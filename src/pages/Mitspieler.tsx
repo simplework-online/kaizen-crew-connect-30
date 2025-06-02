@@ -277,7 +277,7 @@ const Mitspieler = () => {
               {selectedOutfit === 'logistik' ? <div className="space-y-6">
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div className="text-center">
-                      <img src={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.image} alt={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.title} className="w-full h-80 rounded-lg object-contain" />
+                      <img src={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.image} alt={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.title} className="w-full h-full rounded-lg object-contain" />
                     </div>
                     
                     <div className="space-y-6">
