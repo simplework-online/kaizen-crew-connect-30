@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ChevronDown, Star, Award, Users, Clock, MapPin, X, MousePointer2, Eye } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { useNavigate } from 'react-router-dom';
+
 const Mitspieler = () => {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [selectedJob, setSelectedJob] = useState<string | null>(null);
@@ -56,17 +57,17 @@ const Mitspieler = () => {
     hoverColor: 'hover:bg-orange-600'
   }];
   const partners = [{
-    name: 'Hotel Excellence',
-    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=200'
+    name: 'Aramark',
+    image: '/lovable-uploads/0803f22f-53e8-4662-ad7c-ddd71fdf923c.png'
   }, {
-    name: 'Restaurant Deluxe',
-    image: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?w=200'
+    name: 'Ritz-Carlton Wolfsburg',
+    image: '/lovable-uploads/8857f61f-a342-47cc-978d-eae8201b3bd1.png'
   }, {
-    name: 'Event Center Pro',
-    image: 'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=200'
+    name: 'KaDeWe Berlin',
+    image: '/lovable-uploads/206324ce-ca1e-46fd-bd8c-116286eb5772.png'
   }, {
-    name: 'Catering Masters',
-    image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=200'
+    name: 'Maritim Hotels',
+    image: '/lovable-uploads/6953465e-3b57-4998-932e-e833a7957d99.png'
   }];
   const whyUs = [{
     icon: '💰',
@@ -190,7 +191,9 @@ const Mitspieler = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {partners.map((partner, index) => <div key={index} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 border border-gray-100">
-                <img src={partner.image} alt={partner.name} className="w-full h-32 object-cover rounded-xl mb-4" />
+                <div className="w-full h-32 flex items-center justify-center mb-4">
+                  <img src={partner.image} alt={partner.name} className="max-w-full max-h-full object-contain rounded-xl" />
+                </div>
                 <h3 className="text-center font-bold text-gray-800 text-sm">{partner.name}</h3>
               </div>)}
           </div>
@@ -395,4 +398,5 @@ const Mitspieler = () => {
       </Dialog>
     </div>;
 };
+
 export default Mitspieler;
