@@ -182,12 +182,12 @@ const About = () => {
               ))}
             </div>
             
-            <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
-              <div className="text-center">
+            <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center p-4">
+              <div className="w-full h-full">
                 <img 
                   src="/lovable-uploads/4c83dd98-cefb-4b4c-8d22-dca988e5439a.png" 
                   alt="KAIZEN Bürogebäude" 
-                  className="w-full h-full object-cover rounded-lg"
+                  className="w-full h-full object-contain rounded-lg"
                 />
               </div>
             </div>
