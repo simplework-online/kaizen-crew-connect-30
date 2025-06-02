@@ -94,7 +94,7 @@ const Mitspieler = () => {
     logistik: {
       title: "Logistik Outfit",
       description: "Praktisch und sicher für Logistik-Tätigkeiten",
-      image: "/lovable-uploads/bae93f50-47c9-4ef6-8b68-ee0cc056d03a.png",
+      image: "/lovable-uploads/56587682-403e-4b06-90eb-2283e7f59ac2.png",
       clothing: ["Robuste Arbeitskleidung oder Uniform", "Sicherheitsschuhe mit Stahlkappe", "Warnweste (falls erforderlich)", "Lange Hose (keine Shorts)", "Praktisches T-Shirt oder Arbeitshemd"],
       equipment: ["Arbeitshandschuhe", "Helm oder Kappe", "Rückengurt (bei schwerem Heben)", "Scanner oder Clipboard", "Walkie-Talkie (falls erforderlich)"]
     }
@@ -280,29 +280,31 @@ const Mitspieler = () => {
                       <img src={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.image} alt={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.title} className="w-full h-80 rounded-lg object-contain" />
                     </div>
                     
-                    <div className="bg-blue-50 p-6 rounded-lg">
-                      <h3 className="text-xl font-bold text-blue-800 mb-4 flex items-center">
-                        👔 Arbeitskleidung
-                      </h3>
-                      <ul className="space-y-2">
-                        {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.clothing.map((item, index) => <li key={index} className="flex items-start">
-                            <span className="text-blue-600 mr-2">•</span>
-                            <span className="text-gray-700">{item}</span>
-                          </li>)}
-                      </ul>
-                    </div>
-                  </div>
+                    <div className="space-y-6">
+                      <div className="bg-blue-50 p-6 rounded-lg">
+                        <h3 className="text-xl font-bold text-blue-800 mb-4 flex items-center">
+                          👔 Arbeitskleidung
+                        </h3>
+                        <ul className="space-y-2">
+                          {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.clothing.map((item, index) => <li key={index} className="flex items-start">
+                              <span className="text-blue-600 mr-2">•</span>
+                              <span className="text-gray-700">{item}</span>
+                            </li>)}
+                        </ul>
+                      </div>
 
-                  <div className="bg-green-50 p-6 rounded-lg">
-                    <h3 className="text-xl font-bold text-green-800 mb-4 flex items-center">
-                      🛠️ Equipment
-                    </h3>
-                    <ul className="space-y-2">
-                      {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.equipment.map((item, index) => <li key={index} className="flex items-start">
-                          <span className="text-green-600 mr-2">•</span>
-                          <span className="text-gray-700">{item}</span>
-                        </li>)}
-                    </ul>
+                      <div className="bg-green-50 p-6 rounded-lg">
+                        <h3 className="text-xl font-bold text-green-800 mb-4 flex items-center">
+                          🛠️ Equipment
+                        </h3>
+                        <ul className="space-y-2">
+                          {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.equipment.map((item, index) => <li key={index} className="flex items-start">
+                              <span className="text-green-600 mr-2">•</span>
+                              <span className="text-gray-700">{item}</span>
+                            </li>)}
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </div> : <div className="grid md:grid-cols-2 gap-6">
                   <div className="text-center">
