@@ -49,7 +49,7 @@ const Partnership = () => {
       <section className="bg-gradient-to-r from-gray-900 to-black text-white py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-5xl font-bold mb-6">Werden Sie unser Partner</h1>
+            <h1 className="text-5xl font-bold mb-6">PARTNERSCHAFT</h1>
             <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
               Profitieren Sie von unserem umfangreichen Personalpool und unserer langjährigen Erfahrung 
               in der Event- und Gastronomiebranche.
@@ -59,6 +59,37 @@ const Partnership = () => {
                 Jetzt Kontakt aufnehmen
               </button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* New Description Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-red-600 mb-6">Ihre Gäste sind unsere Gäste!</h2>
+          </div>
+          
+          <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+            <p>
+              Verstärken Sie im Rahmen der Arbeitnehmerüberlassung Ihr Team flexibel, projektbezogen oder über einen längeren Zeitraum mit unserer Crew und lassen Sie uns gemeinsam für einzigartige Events sorgen.
+            </p>
+            
+            <p>
+              Eine gelungene Veranstaltung beginnt mit einer Anfrage und endet mit einem unvergesslichen Erlebnis.
+            </p>
+            
+            <p>
+              Wir bieten spezialisierte Lösungen für die Hotellerie, Gastronomie, Betriebsverpflegung, Messeveranstaltungen, Catering, private Feiern und vieles mehr. Unsere hausintern geschulte Crew steht Ihnen zur Verfügung, ganz unabhängig um welche Art von Veranstaltung es sich handelt.
+            </p>
+            
+            <p>
+              Kontaktieren Sie uns gerne jederzeit telefonisch, per E-Mail oder über das unten anliegende Kontaktformular und lernen Sie uns anschließend persönlich kennen.
+            </p>
+            
+            <p className="text-center font-semibold text-black">
+              Wir freuen uns auf Sie!
+            </p>
           </div>
         </div>
       </section>
