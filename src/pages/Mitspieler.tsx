@@ -124,9 +124,11 @@ const Mitspieler = () => {
 
   const handleJobTypeSelect = (jobId: string) => {
     setSelectedJob(selectedJob === jobId ? null : jobId);
-    
-    // Scroll to the skills display section when a job is selected
-    if (skillsDisplayRef.current) {
+  };
+
+  // Add useEffect to handle scrolling when selectedJob changes
+  useEffect(() => {
+    if (selectedJob && skillsDisplayRef.current) {
       setTimeout(() => {
         skillsDisplayRef.current?.scrollIntoView({ 
           behavior: 'smooth', 
@@ -134,7 +136,7 @@ const Mitspieler = () => {
         });
       }, 100);
     }
-  };
+  }, [selectedJob]);
 
   const openOutfitDialog = (outfitType: string) => {
     setSelectedOutfit(outfitType);
