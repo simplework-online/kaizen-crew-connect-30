@@ -9,6 +9,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Homepage from "./pages/Homepage";
 import Partnership from "./pages/Partnership";
 import Mitspieler from "./pages/Mitspieler";
+import Bewerbung from "./pages/Bewerbung";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Imprint from "./pages/Imprint";
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/" element={<Homepage />} />
             <Route path="/partnership" element={<Partnership />} />
             <Route path="/mitspieler" element={<Mitspieler />} />
+            <Route path="/bewerbung" element={<Bewerbung />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/imprint" element={<Imprint />} />
