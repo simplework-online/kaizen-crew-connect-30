@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Star, Play } from 'lucide-react';
 
@@ -91,26 +90,6 @@ const Homepage = () => {
         </div>
       </section>
 
-      {/* Video Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-black mb-4">Entdecken Sie KAIZEN</h2>
-            <p className="text-xl text-gray-600">Lernen Sie uns und unsere Arbeit kennen</p>
-          </div>
-          <div className="relative bg-black rounded-lg overflow-hidden aspect-video">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <button className="bg-red-600 hover:bg-red-700 rounded-full p-6 transition-colors">
-                <Play className="w-12 h-12 text-white ml-1" />
-              </button>
-            </div>
-            <div className="absolute bottom-4 left-4 text-white">
-              <p className="text-sm opacity-75">Video Placeholder - Firmenvorstellung</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Partners Slider */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
@@ -168,6 +147,26 @@ const Homepage = () => {
                   }`}
                 />
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-black mb-4">Entdecken Sie KAIZEN</h2>
+            <p className="text-xl text-gray-600">Lernen Sie uns und unsere Arbeit kennen</p>
+          </div>
+          <div className="relative bg-black rounded-lg overflow-hidden aspect-video">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <button className="bg-red-600 hover:bg-red-700 rounded-full p-6 transition-colors">
+                <Play className="w-12 h-12 text-white ml-1" />
+              </button>
+            </div>
+            <div className="absolute bottom-4 left-4 text-white">
+              <p className="text-sm opacity-75">Video Placeholder - Firmenvorstellung</p>
             </div>
           </div>
         </div>
