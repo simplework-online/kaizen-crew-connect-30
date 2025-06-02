@@ -5,44 +5,44 @@ import { MapPin, Users, Calendar, Award } from 'lucide-react';
 const About = () => {
   const team = [
     {
-      name: 'Max Müller',
-      position: 'Geschäftsführer',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300',
-      description: 'Mit über 15 Jahren Erfahrung in der Personalbranche leitet Max unser Unternehmen mit Leidenschaft und Vision.'
+      name: 'Paiman Sharifzada',
+      position: 'Geschäftsführender Gesellschafter',
+      image: 'https://kaizen-personalagentur.de/wp-content/uploads/2020/09/Paiman.jpg',
+      description: 'Maybe nach Text Fragen?'
     },
 
      {
-      name: 'Max Müller',
-      position: 'Geschäftsführer',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300',
-      description: 'Mit über 15 Jahren Erfahrung in der Personalbranche leitet Max unser Unternehmen mit Leidenschaft und Vision.'
+      name: 'Margan Sharifzada',
+      position: 'Standortleitung Berlin',
+      image: 'https://kaizen-personalagentur.de/wp-content/uploads/2025/03/Profilbild-Margan-Sharifzada-750x450-1.jpg',
+      description: 'Maybe nach Text Fragen?'
     },
     
     {
-      name: 'Anna Schmidt',
-      position: 'Personalmanagerin',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b977?w=300',
-      description: 'Anna koordiniert unsere Personalvermittlung und sorgt für die perfekte Passung zwischen Kunden und Mitarbeitern.'
+      name: 'Sepideh Saleh Baigi',
+      position: 'Standortleitung Hamburg',
+      image: 'https://kaizen-personalagentur.de/wp-content/uploads/2025/04/Bild-Sepideh-Saleh-Baigi.jpeg',
+      description: 'Maybe nach Text Fragen?'
     },
     {
-      name: 'Thomas Weber',
-      position: 'Kundenbetreuung',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300',
-      description: 'Thomas ist der erste Ansprechpartner für unsere Partner und sorgt für exzellente Kundenbeziehungen.'
+      name: 'Maik Wala',
+      position: 'Standortleitung Hannover / Braunschweig',
+      image: 'https://kaizen-personalagentur.de/wp-content/uploads/2025/04/Bild-Maik-Wala-750x450-1.jpg',
+      description: 'Maybe nach Text Fragen?'
     },
     {
-      name: 'Sarah Johnson',
-      position: 'Recruiting Specialist',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300',
-      description: 'Sarah findet die besten Talente für unser Team und führt professionelle Bewerbungsgespräche.'
+      name: 'Jimmy Jimblo',
+      position: 'Happiness Manager',
+      image: 'https://kaizen-personalagentur.de/wp-content/uploads/2020/09/Jimmy-Jimblo.jpg',
+      description: 'Maybe nach Text Fragen?'
     }
   ];
 
   const locations = [
-    { city: 'München', address: 'Maximilianstr. 12, 80539 München', phone: '+49 (0) 89 123 456' },
+    { city: 'Hannover', address: 'Königstr. 48, 30175 Hannover', phone: '+49 (0) 511 99998511' },
     { city: 'Berlin', address: 'Unter den Linden 77, 10117 Berlin', phone: '+49 (0) 30 234 567' },
     { city: 'Hamburg', address: 'Jungfernstieg 15, 20354 Hamburg', phone: '+49 (0) 40 345 678' },
-    { city: 'Köln', address: 'Hohe Str. 95, 50667 Köln', phone: '+49 (0) 221 456 789' }
+    { city: 'Braunschweig', address: 'Hohe Str. 95, 50667 Köln', phone: '+49 (0) 221 456 789' }
   ];
 
   const milestones = [
