@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { ChevronDown, Star, Award, Users, Clock, MapPin, X, MousePointer2, Eye } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { useNavigate } from 'react-router-dom';
-
 const Mitspieler = () => {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [selectedJob, setSelectedJob] = useState<string | null>(null);
@@ -130,16 +129,13 @@ const Mitspieler = () => {
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="max-w-6xl mx-auto px-4 relative z-10">
           <div className="text-center">
-            <h1 className="text-7xl font-bold mb-8 bg-gradient-to-r from-white to-pink-200 bg-clip-text text-transparent">
+            <h1 className="text-7xl mb-8 bg-gradient-to-r from-white to-pink-200 bg-clip-text font-bold text-amber-400">
               Werde Teil unseres Teams! 🚀
             </h1>
             <p className="text-2xl mb-10 text-indigo-100 max-w-3xl mx-auto leading-relaxed">
               Starte deine Karriere in der Event- und Gastronomiebranche mit uns!
             </p>
-            <button 
-              onClick={handleApplyClick}
-              className="bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-300 hover:to-orange-300 text-black px-12 py-6 rounded-full text-xl font-bold transition-all shadow-2xl transform hover:scale-105 hover:shadow-yellow-400/25"
-            >
+            <button onClick={handleApplyClick} className="bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-300 hover:to-orange-300 text-black px-12 py-6 rounded-full text-xl font-bold transition-all shadow-2xl transform hover:scale-105 hover:shadow-yellow-400/25">
               Jetzt bewerben! ✨
             </button>
           </div>
@@ -312,10 +308,7 @@ const Mitspieler = () => {
           <p className="text-2xl mb-10 text-indigo-100 leading-relaxed">
             Bewirb dich jetzt und starte schon bald deinen ersten Job!
           </p>
-          <button 
-            onClick={handleApplyClick}
-            className="bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-300 hover:to-orange-300 text-black px-16 py-8 rounded-full text-2xl font-bold transition-all shadow-2xl transform hover:scale-105 hover:shadow-yellow-400/25"
-          >
+          <button onClick={handleApplyClick} className="bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-300 hover:to-orange-300 text-black px-16 py-8 rounded-full text-2xl font-bold transition-all shadow-2xl transform hover:scale-105 hover:shadow-yellow-400/25">
             Jetzt bewerben! ✨
           </button>
           <p className="mt-8 text-indigo-200 text-lg">
@@ -417,5 +410,4 @@ const Mitspieler = () => {
       </Dialog>
     </div>;
 };
-
 export default Mitspieler;
