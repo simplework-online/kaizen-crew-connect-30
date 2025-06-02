@@ -220,6 +220,53 @@ const Homepage = () => {
         </div>
       </section>
 
+      {/* Values Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-black mb-4">Unsere Werte</h2>
+            <p className="text-xl text-gray-600">Was uns antreibt und auszeichnet</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Happypappy */}
+            <div className="bg-red-50 p-8 rounded-lg border-l-4 border-red-600">
+              <h3 className="text-2xl font-bold text-red-600 mb-4">#Happypappy</h3>
+              <p className="text-gray-700 text-lg leading-relaxed">
+                Wir schenken ein ehrliches Lächeln, Spaß und strahlende Positivität.
+              </p>
+            </div>
+            
+            {/* sexymexy */}
+            <div className="bg-gray-50 p-8 rounded-lg border-l-4 border-gray-600">
+              <h3 className="text-2xl font-bold text-gray-600 mb-4">#sexymexy</h3>
+              <p className="text-gray-700 text-lg leading-relaxed mb-2">
+                <strong>sexy</strong> = WOW-Typen
+              </p>
+              <p className="text-gray-700 text-lg leading-relaxed">
+                <strong>mexy</strong> = KAIZEN-Mentalität
+              </p>
+            </div>
+            
+            {/* playhardplayhard */}
+            <div className="bg-yellow-50 p-8 rounded-lg border-l-4 border-yellow-600">
+              <h3 className="text-2xl font-bold text-yellow-600 mb-4">#playhardplayhard</h3>
+              <p className="text-gray-700 text-lg leading-relaxed">
+                Wir kennen das Wort "Arbeit" nicht. #playhardplayhard steht für Lifebalance, inspirierende Energie und Champagner-Performance.
+              </p>
+            </div>
+            
+            {/* kiss */}
+            <div className="bg-blue-50 p-8 rounded-lg border-l-4 border-blue-600">
+              <h3 className="text-2xl font-bold text-blue-600 mb-4">#kiss</h3>
+              <p className="text-gray-700 text-lg leading-relaxed">
+                Keep it simple and stupid.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Reviews Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
