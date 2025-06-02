@@ -128,7 +128,7 @@ const Homepage = () => {
                 {partners.map((partner) => (
                   <div key={partner.id} className="w-full flex-shrink-0">
                     <div 
-                      className="relative h-96 cursor-pointer group"
+                      className="relative h-32 cursor-pointer group"
                       onClick={() => handlePartnerClick(partner.website)}
                     >
                       <img 
@@ -137,7 +137,7 @@ const Homepage = () => {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center">
-                        <h3 className="text-white text-3xl font-bold text-center">{partner.name}</h3>
+                        <h3 className="text-white text-xl font-bold text-center">{partner.name}</h3>
                       </div>
                     </div>
                   </div>
