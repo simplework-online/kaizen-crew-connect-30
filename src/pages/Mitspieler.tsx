@@ -1,129 +1,98 @@
-
 import React, { useState } from 'react';
 import { ChevronDown, Star, Award, Users, Clock, MapPin, X, MousePointer2, Eye } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { useNavigate } from 'react-router-dom';
-
 const Mitspieler = () => {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [selectedJob, setSelectedJob] = useState<string | null>(null);
   const [isOutfitDialogOpen, setIsOutfitDialogOpen] = useState(false);
   const [selectedOutfit, setSelectedOutfit] = useState<string | null>(null);
   const navigate = useNavigate();
-
-  const faqs = [
-    {
-      question: 'Wie läuft der Bewerbungsprozess ab?',
-      answer: 'Nach Ihrer Online-Bewerbung laden wir Sie zu einem persönlichen Gespräch ein. Bei Eignung erhalten Sie eine Schulung und können sofort loslegen!'
-    },
-    {
-      question: 'Wann und wo kann ich arbeiten?',
-      answer: 'Wir bieten flexible Arbeitszeiten an verschiedenen Standorten. Sie können selbst entscheiden, wann und wo Sie arbeiten möchten.'
-    },
-    {
-      question: 'Wie viel kann ich verdienen?',
-      answer: 'Die Vergütung richtet sich nach der Position und Erfahrung. Wir zahlen faire Löhne über dem Mindestlohn plus Zuschläge für Wochenenden und Feiertage.'
-    },
-    {
-      question: 'Brauche ich Erfahrung?',
-      answer: 'Nein! Wir bilden Sie aus. Wichtig sind Motivation, Freundlichkeit und Zuverlässigkeit. Erfahrung ist ein Plus, aber nicht Voraussetzung.'
-    },
-    {
-      question: 'Was für Kleidung muss ich tragen?',
-      answer: 'Je nach Einsatz stellen wir Ihnen professionelle Arbeitskleidung zur Verfügung oder Sie erhalten genaue Vorgaben für das Outfit.'
-    }
-  ];
-
+  const faqs = [{
+    question: 'Wie läuft der Bewerbungsprozess ab?',
+    answer: 'Nach Ihrer Online-Bewerbung laden wir Sie zu einem persönlichen Gespräch ein. Bei Eignung erhalten Sie eine Schulung und können sofort loslegen!'
+  }, {
+    question: 'Wann und wo kann ich arbeiten?',
+    answer: 'Wir bieten flexible Arbeitszeiten an verschiedenen Standorten. Sie können selbst entscheiden, wann und wo Sie arbeiten möchten.'
+  }, {
+    question: 'Wie viel kann ich verdienen?',
+    answer: 'Die Vergütung richtet sich nach der Position und Erfahrung. Wir zahlen faire Löhne über dem Mindestlohn plus Zuschläge für Wochenenden und Feiertage.'
+  }, {
+    question: 'Brauche ich Erfahrung?',
+    answer: 'Nein! Wir bilden Sie aus. Wichtig sind Motivation, Freundlichkeit und Zuverlässigkeit. Erfahrung ist ein Plus, aber nicht Voraussetzung.'
+  }, {
+    question: 'Was für Kleidung muss ich tragen?',
+    answer: 'Je nach Einsatz stellen wir Ihnen professionelle Arbeitskleidung zur Verfügung oder Sie erhalten genaue Vorgaben für das Outfit.'
+  }];
   const jobSkillsMapping = {
     'logistic': ['Teamwork', 'Stressresistenz', 'Organisationstalent', 'Flexibilität'],
     'service': ['Kommunikation', 'Kundenservice', 'Teamwork', 'Flexibilität'],
     'barkeeper': ['Kommunikation', 'Kreativität', 'Stressresistenz', 'Kundenservice'],
     'kitchen': ['Teamwork', 'Stressresistenz', 'Organisationstalent', 'Flexibilität']
   };
-
-  const jobTypes = [
-    {
-      id: 'logistic',
-      name: 'Logistik',
-      emoji: '📦',
-      color: 'bg-blue-500',
-      hoverColor: 'hover:bg-blue-600'
-    },
-    {
-      id: 'service',
-      name: 'Service',
-      emoji: '🍽️',
-      color: 'bg-green-500',
-      hoverColor: 'hover:bg-green-600'
-    },
-    {
-      id: 'barkeeper',
-      name: 'Barkeeper',
-      emoji: '🍸',
-      color: 'bg-purple-500',
-      hoverColor: 'hover:bg-purple-600'
-    },
-    {
-      id: 'kitchen',
-      name: 'Küchenhilfe',
-      emoji: '👨‍🍳',
-      color: 'bg-orange-500',
-      hoverColor: 'hover:bg-orange-600'
-    }
-  ];
-
-  const partners = [
-    {
-      name: 'Hotel Excellence',
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=200'
-    },
-    {
-      name: 'Restaurant Deluxe',
-      image: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?w=200'
-    },
-    {
-      name: 'Event Center Pro',
-      image: 'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=200'
-    },
-    {
-      name: 'Catering Masters',
-      image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=200'
-    }
-  ];
-
-  const whyUs = [
-    {
-      icon: '💰',
-      title: 'Faire Bezahlung',
-      desc: 'Überdurchschnittliche Löhne + Zuschläge'
-    },
-    {
-      icon: '🚀',
-      title: 'Schneller Einstieg',
-      desc: 'Von der Bewerbung zum ersten Job in wenigen Tagen'
-    },
-    {
-      icon: '📚',
-      title: 'Kostenlose Schulungen',
-      desc: 'Wir bilden Sie professionell aus'
-    },
-    {
-      icon: '🏆',
-      title: 'Karrierechancen',
-      desc: 'Entwicklungsmöglichkeiten in der Branche'
-    },
-    {
-      icon: '🤝',
-      title: 'Tolle Kollegen',
-      desc: 'Arbeiten Sie mit einem motivierten Team'
-    },
-    {
-      icon: '📍',
-      title: 'Flexible Standorte',
-      desc: 'Jobs in ganz Deutschland verfügbar'
-    }
-  ];
-
+  const jobTypes = [{
+    id: 'logistic',
+    name: 'Logistik',
+    emoji: '📦',
+    color: 'bg-blue-500',
+    hoverColor: 'hover:bg-blue-600'
+  }, {
+    id: 'service',
+    name: 'Service',
+    emoji: '🍽️',
+    color: 'bg-green-500',
+    hoverColor: 'hover:bg-green-600'
+  }, {
+    id: 'barkeeper',
+    name: 'Barkeeper',
+    emoji: '🍸',
+    color: 'bg-purple-500',
+    hoverColor: 'hover:bg-purple-600'
+  }, {
+    id: 'kitchen',
+    name: 'Küchenhilfe',
+    emoji: '👨‍🍳',
+    color: 'bg-orange-500',
+    hoverColor: 'hover:bg-orange-600'
+  }];
+  const partners = [{
+    name: 'Hotel Excellence',
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=200'
+  }, {
+    name: 'Restaurant Deluxe',
+    image: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?w=200'
+  }, {
+    name: 'Event Center Pro',
+    image: 'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=200'
+  }, {
+    name: 'Catering Masters',
+    image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=200'
+  }];
+  const whyUs = [{
+    icon: '💰',
+    title: 'Faire Bezahlung',
+    desc: 'Überdurchschnittliche Löhne + Zuschläge'
+  }, {
+    icon: '🚀',
+    title: 'Schneller Einstieg',
+    desc: 'Von der Bewerbung zum ersten Job in wenigen Tagen'
+  }, {
+    icon: '📚',
+    title: 'Kostenlose Schulungen',
+    desc: 'Wir bilden Sie professionell aus'
+  }, {
+    icon: '🏆',
+    title: 'Karrierechancen',
+    desc: 'Entwicklungsmöglichkeiten in der Branche'
+  }, {
+    icon: '🤝',
+    title: 'Tolle Kollegen',
+    desc: 'Arbeiten Sie mit einem motivierten Team'
+  }, {
+    icon: '📍',
+    title: 'Flexible Standorte',
+    desc: 'Jobs in ganz Deutschland verfügbar'
+  }];
   const outfitInfo = {
     service: {
       title: "Service Outfit",
@@ -140,18 +109,18 @@ const Mitspieler = () => {
       equipment: ["Arbeitshandschuhe", "Helm oder Kappe", "Rückengurt (bei schwerem Heben)", "Scanner oder Clipboard", "Walkie-Talkie (falls erforderlich)"]
     }
   };
-
   const handleJobClick = (jobId: string) => {
-    navigate('/bewerbung', { state: { selectedJob: jobId } });
+    navigate('/bewerbung', {
+      state: {
+        selectedJob: jobId
+      }
+    });
   };
-
   const openOutfitDialog = (outfitType: string) => {
     setSelectedOutfit(outfitType);
     setIsOutfitDialogOpen(true);
   };
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-cyan-50">
+  return <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-cyan-50">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
@@ -180,10 +149,7 @@ const Mitspieler = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="text-center group">
-              <button 
-                onClick={() => openOutfitDialog('service')} 
-                className="relative w-full bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl p-8 mb-6 hover:from-blue-500 hover:to-blue-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-2xl group-hover:shadow-blue-500/25"
-              >
+              <button onClick={() => openOutfitDialog('service')} className="relative w-full bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl p-8 mb-6 hover:from-blue-500 hover:to-blue-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-2xl group-hover:shadow-blue-500/25">
                 <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
                   <Eye className="w-6 h-6 text-white" />
                 </div>
@@ -197,10 +163,7 @@ const Mitspieler = () => {
               <p className="text-sm text-blue-600 font-medium mt-2">Klicken für Details</p>
             </div>
             <div className="text-center group">
-              <button 
-                onClick={() => openOutfitDialog('logistik')} 
-                className="relative w-full bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl p-8 mb-6 hover:from-orange-500 hover:to-orange-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-2xl group-hover:shadow-orange-500/25"
-              >
+              <button onClick={() => openOutfitDialog('logistik')} className="relative w-full bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl p-8 mb-6 hover:from-orange-500 hover:to-orange-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-2xl group-hover:shadow-orange-500/25">
                 <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
                   <Eye className="w-6 h-6 text-white" />
                 </div>
@@ -226,12 +189,10 @@ const Mitspieler = () => {
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {partners.map((partner, index) => (
-              <div key={index} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 border border-gray-100">
+            {partners.map((partner, index) => <div key={index} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 border border-gray-100">
                 <img src={partner.image} alt={partner.name} className="w-full h-32 object-cover rounded-xl mb-4" />
                 <h3 className="text-center font-bold text-gray-800 text-sm">{partner.name}</h3>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -246,39 +207,22 @@ const Mitspieler = () => {
           
           <div className="mb-12">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-              {jobTypes.map(job => (
-                <button
-                  key={job.id}
-                  onClick={() => setSelectedJob(selectedJob === job.id ? null : job.id)}
-                  className={`p-8 rounded-2xl border-2 transition-all transform hover:scale-105 shadow-lg ${
-                    selectedJob === job.id
-                      ? `${job.color} text-white border-white shadow-2xl scale-105`
-                      : 'bg-white text-gray-700 border-gray-200 hover:shadow-xl hover:border-indigo-200'
-                  }`}
-                >
+              {jobTypes.map(job => <button key={job.id} onClick={() => setSelectedJob(selectedJob === job.id ? null : job.id)} className={`p-8 rounded-2xl border-2 transition-all transform hover:scale-105 shadow-lg ${selectedJob === job.id ? `${job.color} text-white border-white shadow-2xl scale-105` : 'bg-white text-gray-700 border-gray-200 hover:shadow-xl hover:border-indigo-200'}`}>
                   <div className="text-4xl mb-4">{job.emoji}</div>
                   <h3 className="text-xl font-bold">{job.name}</h3>
-                </button>
-              ))}
+                </button>)}
             </div>
             
-            {selectedJob && (
-              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-8 border border-indigo-200">
+            {selectedJob && <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-8 border border-indigo-200">
                 <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
                   Benötigte Skills für {jobTypes.find(job => job.id === selectedJob)?.name}
                 </h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {jobSkillsMapping[selectedJob as keyof typeof jobSkillsMapping]?.map(skill => (
-                    <div
-                      key={skill}
-                      className="bg-white p-4 rounded-xl shadow-md border border-indigo-100 text-center transform hover:scale-105 transition-all"
-                    >
+                  {jobSkillsMapping[selectedJob as keyof typeof jobSkillsMapping]?.map(skill => <div key={skill} className="bg-white p-4 rounded-xl shadow-md border border-indigo-100 text-center transform hover:scale-105 transition-all">
                       <span className="font-semibold text-gray-700">{skill}</span>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
-              </div>
-            )}
+              </div>}
           </div>
         </div>
       </section>
@@ -292,17 +236,11 @@ const Mitspieler = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {jobTypes.map(job => (
-              <button
-                key={job.id}
-                onClick={() => handleJobClick(job.id)}
-                className={`p-10 rounded-2xl transition-all transform hover:scale-110 shadow-lg hover:shadow-2xl ${job.color} ${job.hoverColor} text-white border-2 border-white/20 hover:border-white/40 group`}
-              >
+            {jobTypes.map(job => <button key={job.id} onClick={() => handleJobClick(job.id)} className={`p-10 rounded-2xl transition-all transform hover:scale-110 shadow-lg hover:shadow-2xl ${job.color} ${job.hoverColor} text-white border-2 border-white/20 hover:border-white/40 group`}>
                 <div className="text-5xl mb-6 group-hover:animate-bounce">{job.emoji}</div>
                 <h3 className="text-2xl font-bold mb-2">{job.name}</h3>
                 <p className="text-white/80 text-sm">Jetzt bewerben →</p>
-              </button>
-            ))}
+              </button>)}
           </div>
         </div>
       </section>
@@ -316,13 +254,11 @@ const Mitspieler = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {whyUs.map((item, index) => (
-              <div key={index} className="bg-gradient-to-br from-indigo-50 to-purple-50 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 border border-indigo-100">
+            {whyUs.map((item, index) => <div key={index} className="bg-gradient-to-br from-indigo-50 to-purple-50 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 border border-indigo-100">
                 <div className="text-5xl mb-6">{item.icon}</div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">{item.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -336,22 +272,15 @@ const Mitspieler = () => {
           </div>
           
           <div className="space-y-6">
-            {faqs.map((faq, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
-                <button
-                  onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
-                  className="w-full p-8 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
-                >
+            {faqs.map((faq, index) => <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                <button onClick={() => setExpandedFaq(expandedFaq === index ? null : index)} className="w-full p-8 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
                   <h3 className="text-xl font-semibold text-gray-800">{faq.question}</h3>
                   <ChevronDown className={`w-6 h-6 text-gray-500 transition-transform ${expandedFaq === index ? 'rotate-180' : ''}`} />
                 </button>
-                {expandedFaq === index && (
-                  <div className="px-8 pb-8">
+                {expandedFaq === index && <div className="px-8 pb-8">
                     <p className="text-gray-600 leading-relaxed text-lg">{faq.answer}</p>
-                  </div>
-                )}
-              </div>
-            ))}
+                  </div>}
+              </div>)}
           </div>
         </div>
       </section>
@@ -382,24 +311,19 @@ const Mitspieler = () => {
             </DialogTitle>
           </DialogHeader>
           
-          {selectedOutfit && (
-            <div className="space-y-6">
+          {selectedOutfit && <div className="space-y-6">
               <div className="text-center">
                 <p className="text-gray-600 text-lg">
                   {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.description}
                 </p>
               </div>
 
-              {selectedOutfit === 'logistik' ? (
-                <div className="space-y-6">
+              {selectedOutfit === 'logistik' ? <div className="space-y-6">
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
                     <div className="flex items-stretch justify-center py-[50px]">
-                      <img 
-                        src={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.image} 
-                        alt={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.title} 
-                        className="rounded-lg object-contain" 
-                        style={{ height: 'calc(2 * 6rem + 12rem + 1.5rem)' }} 
-                      />
+                      <img src={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.image} alt={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.title} className="rounded-lg object-contain" style={{
+                  height: 'calc(2 * 6rem + 12rem + 1.5rem)'
+                }} />
                     </div>
                     
                     <div className="space-y-6 flex flex-col">
@@ -408,12 +332,10 @@ const Mitspieler = () => {
                           👔 Arbeitskleidung
                         </h3>
                         <ul className="space-y-2">
-                          {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.clothing.map((item, index) => (
-                            <li key={index} className="flex items-start">
+                          {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.clothing.map((item, index) => <li key={index} className="flex items-start">
                               <span className="text-blue-600 mr-2">•</span>
                               <span className="text-gray-700">{item}</span>
-                            </li>
-                          ))}
+                            </li>)}
                         </ul>
                       </div>
 
@@ -422,25 +344,17 @@ const Mitspieler = () => {
                           🛠️ Equipment
                         </h3>
                         <ul className="space-y-2">
-                          {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.equipment.map((item, index) => (
-                            <li key={index} className="flex items-start">
+                          {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.equipment.map((item, index) => <li key={index} className="flex items-start">
                               <span className="text-green-600 mr-2">•</span>
                               <span className="text-gray-700">{item}</span>
-                            </li>
-                          ))}
+                            </li>)}
                         </ul>
                       </div>
                     </div>
                   </div>
-                </div>
-              ) : (
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="text-center">
-                    <img 
-                      src={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.image} 
-                      alt={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.title} 
-                      className="w-full h-80 object-cover rounded-lg" 
-                    />
+                </div> : <div className="grid md:grid-cols-2 gap-6">
+                  <div className="text-center py-[63px]">
+                    <img src={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.image} alt={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.title} className="w-full h-80 rounded-lg object-contain" />
                   </div>
                   
                   <div className="space-y-6">
@@ -449,12 +363,10 @@ const Mitspieler = () => {
                         👔 Arbeitskleidung
                       </h3>
                       <ul className="space-y-2">
-                        {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.clothing.map((item, index) => (
-                          <li key={index} className="flex items-start">
+                        {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.clothing.map((item, index) => <li key={index} className="flex items-start">
                             <span className="text-blue-600 mr-2">•</span>
                             <span className="text-gray-700">{item}</span>
-                          </li>
-                        ))}
+                          </li>)}
                       </ul>
                     </div>
 
@@ -463,17 +375,14 @@ const Mitspieler = () => {
                         🛠️ Equipment
                       </h3>
                       <ul className="space-y-2">
-                        {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.equipment.map((item, index) => (
-                          <li key={index} className="flex items-start">
+                        {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.equipment.map((item, index) => <li key={index} className="flex items-start">
                             <span className="text-green-600 mr-2">•</span>
                             <span className="text-gray-700">{item}</span>
-                          </li>
-                        ))}
+                          </li>)}
                       </ul>
                     </div>
                   </div>
-                </div>
-              )}
+                </div>}
 
               <div className="text-center bg-yellow-50 p-4 rounded-lg">
                 <p className="text-sm text-gray-600">
@@ -481,12 +390,9 @@ const Mitspieler = () => {
                   Wir informieren Sie vor jedem Einsatz über die genauen Anforderungen.
                 </p>
               </div>
-            </div>
-          )}
+            </div>}
         </DialogContent>
       </Dialog>
-    </div>
-  );
+    </div>;
 };
-
 export default Mitspieler;
