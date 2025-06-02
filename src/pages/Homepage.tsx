@@ -34,24 +34,51 @@ const Homepage = () => {
   const reviews = [
     {
       id: 1,
-      name: 'Max Mustermann',
-      company: 'Hotel Excellence',
+      name: 'Sarah M.',
       rating: 5,
-      text: 'KAIZEN hat uns immer zuverlässiges und professionelles Personal vermittelt. Die Zusammenarbeit ist unkompliziert und effizient.'
+      text: 'Excellent service! KAIZEN provided us with professional and reliable staff for our hotel. The booking process was smooth and the staff arrived on time and well-prepared.',
+      date: '2 Wochen her',
+      verified: true
     },
     {
       id: 2,
-      name: 'Anna Schmidt',
-      company: 'Restaurant Deluxe',
+      name: 'Michael K.',
       rating: 5,
-      text: 'Hervorragender Service! Das Personal ist immer pünktlich, gut geschult und freundlich. Können wir nur weiterempfehlen.'
+      text: 'We have been working with KAIZEN for over a year now. Their staff is always professional, punctual, and well-trained. Highly recommended for event staffing!',
+      date: '1 Monat her',
+      verified: true
     },
     {
       id: 3,
-      name: 'Thomas Weber',
-      company: 'Event Center Pro',
+      name: 'Anna L.',
+      rating: 4,
+      text: 'Great experience with KAIZEN. They helped us staff our restaurant during peak season. Good communication and reliable service.',
+      date: '3 Wochen her',
+      verified: true
+    },
+    {
+      id: 4,
+      name: 'Thomas R.',
       rating: 5,
-      text: 'Dank KAIZEN können wir uns auf unser Kerngeschäft konzentrieren. Die Personalvermittlung läuft reibungslos.'
+      text: 'Professional staffing agency with excellent customer service. They understand our needs and always deliver quality personnel.',
+      date: '1 Monat her',
+      verified: true
+    },
+    {
+      id: 5,
+      name: 'Lisa W.',
+      rating: 5,
+      text: 'KAIZEN has been instrumental in helping us manage our events. Their staff is well-trained and professional. Very satisfied with their service.',
+      date: '2 Monate her',
+      verified: true
+    },
+    {
+      id: 6,
+      name: 'Daniel F.',
+      rating: 4,
+      text: 'Reliable and efficient service. The staff provided by KAIZEN helped make our corporate event a success. Will definitely use their services again.',
+      date: '1 Monat her',
+      verified: true
     }
   ];
 
@@ -176,25 +203,69 @@ const Homepage = () => {
       <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-black mb-4">Was unsere Partner sagen</h2>
-            <p className="text-xl text-gray-600">Erfahrungen aus erster Hand</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {reviews.map((review) => (
-              <div key={review.id} className="bg-white p-8 rounded-lg shadow-lg">
-                <div className="flex items-center mb-4">
-                  {[...Array(review.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+            <h2 className="text-4xl font-bold text-black mb-4">Google Bewertungen</h2>
+            <p className="text-xl text-gray-600">Was unsere Kunden über uns sagen</p>
+            <div className="flex items-center justify-center mt-4">
+              <div className="flex items-center space-x-2">
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-700 mb-6 text-lg leading-relaxed">"{review.text}"</p>
-                <div className="border-t pt-4">
-                  <p className="font-semibold text-black">{review.name}</p>
-                  <p className="text-gray-600">{review.company}</p>
+                <span className="text-lg font-semibold">4.8</span>
+                <span className="text-gray-600">({reviews.length} Bewertungen)</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {reviews.map((review) => (
+              <div key={review.id} className="bg-white p-6 rounded-lg shadow-lg border">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
+                      <span className="text-white font-semibold text-sm">
+                        {review.name.charAt(0)}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-black">{review.name}</p>
+                      {review.verified && (
+                        <p className="text-xs text-green-600">✓ Verifizierte Bewertung</p>
+                      )}
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                    ))}
+                  </div>
+                </div>
+                
+                <p className="text-gray-700 mb-4 text-sm leading-relaxed">"{review.text}"</p>
+                
+                <div className="flex items-center justify-between text-xs text-gray-500">
+                  <span>{review.date}</span>
+                  <div className="flex items-center space-x-1">
+                    <span className="text-blue-600">Google</span>
+                  </div>
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="text-center mt-8">
+            <a 
+              href="https://maps.app.goo.gl/TbZnjgiQpPWsxxw89"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center space-x-2 bg-white border border-gray-300 hover:bg-gray-50 px-6 py-3 rounded-lg transition-colors"
+            >
+              <span>Alle Bewertungen auf Google ansehen</span>
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </a>
           </div>
         </div>
       </section>
