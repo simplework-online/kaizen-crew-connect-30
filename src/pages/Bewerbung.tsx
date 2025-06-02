@@ -1,14 +1,11 @@
-
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { ArrowLeft, Send, User, Mail, Phone, MapPin, FileText, Briefcase } from 'lucide-react';
-import { useLanguage } from '../contexts/LanguageContext';
 
 const Bewerbung = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { t } = useLanguage();
   const [selectedJob, setSelectedJob] = useState<string>('');
   const [formData, setFormData] = useState({
     firstName: '',
@@ -67,15 +64,15 @@ const Bewerbung = () => {
             className="flex items-center text-indigo-600 hover:text-indigo-800 transition-colors mb-6 group"
           >
             <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
-            {t('application.back')}
+            Zurück zu Mitspieler
           </button>
           
           <div className="text-center">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-4 px-2">
-              {t('application.title')}
+              Bewerbungsformular 📝
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 px-4">
-              {t('application.subtitle')}
+              Starte deine Karriere bei KAIZEN - wir freuen uns auf dich!
             </p>
           </div>
         </div>
@@ -85,7 +82,7 @@ const Bewerbung = () => {
           <CardHeader className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-t-lg">
             <CardTitle className="text-2xl font-bold text-center flex items-center justify-center">
               <User className="w-6 h-6 mr-2" />
-              {t('application.personal.title')}
+              Persönliche Informationen
             </CardTitle>
           </CardHeader>
           
@@ -95,7 +92,7 @@ const Bewerbung = () => {
               <div className="bg-gradient-to-r from-indigo-50 to-purple-50 p-6 rounded-xl border border-indigo-200">
                 <label className="block text-lg font-semibold text-gray-800 mb-4 flex items-center">
                   <Briefcase className="w-5 h-5 mr-2" />
-                  {t('application.position')}
+                  Gewünschte Position
                 </label>
                 <select
                   name="selectedJob"
@@ -104,7 +101,7 @@ const Bewerbung = () => {
                   className="w-full p-4 border-2 border-indigo-200 rounded-xl focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all text-lg"
                   required
                 >
-                  <option value="">{t('application.position.select')}</option>
+                  <option value="">Bitte wählen Sie eine Position</option>
                   {jobTypes.map(job => (
                     <option key={job.id} value={job.id}>
                       {job.emoji} {job.name}
@@ -114,7 +111,7 @@ const Bewerbung = () => {
                 {selectedJob && (
                   <div className="mt-4 p-4 bg-white rounded-lg border border-indigo-100">
                     <p className="text-indigo-700 font-medium">
-                      {t('application.position.selected')} {getJobEmoji(selectedJob)} {getJobName(selectedJob)}
+                      Ausgewählt: {getJobEmoji(selectedJob)} {getJobName(selectedJob)}
                     </p>
                   </div>
                 )}
@@ -124,7 +121,7 @@ const Bewerbung = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-lg font-semibold text-gray-800 mb-2">
-                    {t('application.firstname')} *
+                    Vorname *
                   </label>
                   <input
                     type="text"
@@ -138,7 +135,7 @@ const Bewerbung = () => {
                 
                 <div>
                   <label className="block text-lg font-semibold text-gray-800 mb-2">
-                    {t('application.lastname')} *
+                    Nachname *
                   </label>
                   <input
                     type="text"
@@ -156,7 +153,7 @@ const Bewerbung = () => {
                 <div>
                   <label className="block text-lg font-semibold text-gray-800 mb-2 flex items-center">
                     <Mail className="w-5 h-5 mr-2" />
-                    {t('application.email')} *
+                    E-Mail Adresse *
                   </label>
                   <input
                     type="email"
@@ -171,7 +168,7 @@ const Bewerbung = () => {
                 <div>
                   <label className="block text-lg font-semibold text-gray-800 mb-2 flex items-center">
                     <Phone className="w-5 h-5 mr-2" />
-                    {t('application.phone')} *
+                    Telefonnummer *
                   </label>
                   <input
                     type="tel"
@@ -188,12 +185,12 @@ const Bewerbung = () => {
               <div className="space-y-6">
                 <h3 className="text-xl font-semibold text-gray-800 flex items-center">
                   <MapPin className="w-5 h-5 mr-2" />
-                  {t('application.address.title')}
+                  Adresse
                 </h3>
                 
                 <div>
                   <label className="block text-lg font-semibold text-gray-800 mb-2">
-                    {t('application.address.street')} *
+                    Straße und Hausnummer *
                   </label>
                   <input
                     type="text"
@@ -208,7 +205,7 @@ const Bewerbung = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-lg font-semibold text-gray-800 mb-2">
-                      {t('application.address.postal')} *
+                      Postleitzahl *
                     </label>
                     <input
                       type="text"
@@ -222,7 +219,7 @@ const Bewerbung = () => {
                   
                   <div>
                     <label className="block text-lg font-semibold text-gray-800 mb-2">
-                      {t('application.address.city')} *
+                      Stadt *
                     </label>
                     <input
                       type="text"
@@ -240,14 +237,14 @@ const Bewerbung = () => {
               <div>
                 <label className="block text-lg font-semibold text-gray-800 mb-2 flex items-center">
                   <FileText className="w-5 h-5 mr-2" />
-                  {t('application.motivation')}
+                  Motivation (Optional)
                 </label>
                 <textarea
                   name="motivation"
                   value={formData.motivation}
                   onChange={handleInputChange}
                   rows={4}
-                  placeholder={t('application.motivation.placeholder')}
+                  placeholder="Erzählen Sie uns, warum Sie bei KAIZEN arbeiten möchten..."
                   className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all resize-none"
                 />
               </div>
@@ -259,10 +256,10 @@ const Bewerbung = () => {
                   className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-12 py-4 rounded-xl text-xl font-bold transition-all shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center mx-auto"
                 >
                   <Send className="w-6 h-6 mr-2" />
-                  {t('application.submit')}
+                  Bewerbung absenden
                 </button>
                 <p className="text-gray-500 mt-4">
-                  {t('application.response')}
+                  Wir melden uns innerhalb von 24 Stunden bei Ihnen!
                 </p>
               </div>
             </form>
