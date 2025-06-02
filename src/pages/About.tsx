@@ -10,6 +10,14 @@ const About = () => {
       image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300',
       description: 'Mit über 15 Jahren Erfahrung in der Personalbranche leitet Max unser Unternehmen mit Leidenschaft und Vision.'
     },
+
+     {
+      name: 'Max Müller',
+      position: 'Geschäftsführer',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300',
+      description: 'Mit über 15 Jahren Erfahrung in der Personalbranche leitet Max unser Unternehmen mit Leidenschaft und Vision.'
+    },
+    
     {
       name: 'Anna Schmidt',
       position: 'Personalmanagerin',
