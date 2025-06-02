@@ -1,31 +1,31 @@
 import React from 'react';
 import { Shield, Eye, Database, Lock } from 'lucide-react';
-import { useLanguage } from '../contexts/LanguageContext';
 
 const Privacy = () => {
-  const { t } = useLanguage();
-
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 py-16">
         <div className="bg-white rounded-lg shadow-lg p-8">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-8">{t('privacy.title')}</h1>
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-8">Datenschutzerklärung</h1>
           
           <div className="space-y-8">
             {/* Introduction */}
             <section>
               <div className="flex items-center space-x-3 mb-4">
                 <Shield className="w-6 h-6 text-red-600" />
-                <h2 className="text-2xl font-bold text-black">{t('privacy.intro.title')}</h2>
+                <h2 className="text-2xl font-bold text-black">Einleitung</h2>
               </div>
               <p className="text-gray-700 leading-relaxed">
-                {t('privacy.intro.text')}
+                Mit der folgenden Datenschutzerklärung möchten wir Sie darüber aufklären, welche Arten 
+                Ihrer personenbezogenen Daten (nachfolgend auch kurz als "Daten" bezeichnet) wir zu 
+                welchen Zwecken und in welchem Umfang verarbeiten. Die Datenschutzerklärung gilt für 
+                alle von uns durchgeführten Verarbeitungen personenbezogener Daten.
               </p>
             </section>
 
             {/* Controller Information */}
             <section>
-              <h2 className="text-2xl font-bold text-black mb-4">{t('privacy.controller.title')}</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">Verantwortlicher</h2>
               <div className="bg-gray-50 p-4 rounded-lg">
                 <p className="text-gray-700">
                   <strong>KAIZEN Personalagentur GmbH</strong><br />
@@ -40,9 +40,9 @@ const Privacy = () => {
 
             {/* Data Protection Officer */}
             <section>
-              <h2 className="text-2xl font-bold text-black mb-4">{t('privacy.dpo.title')}</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">Datenschutzbeauftragter</h2>
               <p className="text-gray-700">
-                {t('privacy.dpo.text')}<br />
+                Bei Fragen zum Datenschutz wenden Sie sich bitte an unseren Datenschutzbeauftragten:<br />
                 E-Mail: datenschutz@kaizen-personalagentur.de
               </p>
             </section>
