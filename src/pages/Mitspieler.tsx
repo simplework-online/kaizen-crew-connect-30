@@ -10,6 +10,7 @@ const Mitspieler = () => {
   const [selectedOutfit, setSelectedOutfit] = useState<string | null>(null);
   const navigate = useNavigate();
   const skillsSectionRef = useRef<HTMLDivElement>(null);
+  const skillsDisplayRef = useRef<HTMLDivElement>(null);
 
   const faqs = [{
     question: 'Wie läuft der Bewerbungsprozess ab?',
@@ -124,10 +125,10 @@ const Mitspieler = () => {
   const handleJobTypeSelect = (jobId: string) => {
     setSelectedJob(selectedJob === jobId ? null : jobId);
     
-    // Auto-scroll to skills section on mobile when a job is selected
-    if (window.innerWidth < 768 && skillsSectionRef.current) {
+    // Scroll to the skills display section when a job is selected
+    if (skillsDisplayRef.current) {
       setTimeout(() => {
-        skillsSectionRef.current?.scrollIntoView({ 
+        skillsDisplayRef.current?.scrollIntoView({ 
           behavior: 'smooth', 
           block: 'start' 
         });
@@ -244,7 +245,7 @@ const Mitspieler = () => {
                 </button>)}
             </div>
             
-            {selectedJob && <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-8 border border-indigo-200">
+            {selectedJob && <div ref={skillsDisplayRef} className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-8 border border-indigo-200">
                 <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
                   Wichtige Skills für {jobTypes.find(job => job.id === selectedJob)?.name}
                 </h3>
