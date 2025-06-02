@@ -32,11 +32,12 @@ const Layout = ({ children }: LayoutProps) => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">K</span>
-              </div>
-              <span className="text-xl font-bold text-black">KAIZEN Personalagentur</span>
+            <Link to="/" className="flex items-center">
+              <img 
+                src="/lovable-uploads/90ba3f54-e57c-4db9-8bbf-e225c1b46d40.png" 
+                alt="KAIZEN Personalagentur Logo" 
+                className="h-8 w-auto"
+              />
             </Link>
 
             {/* Desktop Navigation */}
@@ -112,10 +113,11 @@ const Layout = ({ children }: LayoutProps) => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold">K</span>
-                </div>
-                <span className="text-xl font-bold">KAIZEN Personalagentur</span>
+                <img 
+                  src="/lovable-uploads/90ba3f54-e57c-4db9-8bbf-e225c1b46d40.png" 
+                  alt="KAIZEN Personalagentur Logo" 
+                  className="h-6 w-auto"
+                />
               </div>
               <p className="text-gray-300 mb-4">
                 {language === 'DE' 
