@@ -275,13 +275,13 @@ const Mitspieler = () => {
               </div>
 
               {selectedOutfit === 'logistik' ? <div className="space-y-6">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <div className="text-center">
-                      <img src={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.image} alt={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.title} className="w-full h-full rounded-lg object-contain" />
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+                    <div className="flex items-stretch">
+                      <img src={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.image} alt={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.title} className="w-full rounded-lg object-cover" style={{ height: 'calc(2 * 6rem + 12rem + 1.5rem)' }} />
                     </div>
                     
-                    <div className="space-y-6">
-                      <div className="bg-blue-50 p-6 rounded-lg">
+                    <div className="space-y-6 flex flex-col">
+                      <div className="bg-blue-50 p-6 rounded-lg flex-1">
                         <h3 className="text-xl font-bold text-blue-800 mb-4 flex items-center">
                           👔 Arbeitskleidung
                         </h3>
@@ -293,7 +293,7 @@ const Mitspieler = () => {
                         </ul>
                       </div>
 
-                      <div className="bg-green-50 p-6 rounded-lg">
+                      <div className="bg-green-50 p-6 rounded-lg flex-1">
                         <h3 className="text-xl font-bold text-green-800 mb-4 flex items-center">
                           🛠️ Equipment
                         </h3>
