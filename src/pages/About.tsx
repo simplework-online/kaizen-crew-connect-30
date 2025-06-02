@@ -119,7 +119,9 @@ const About = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => <div key={index} className="bg-gray-50 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                <img src={member.image} alt={member.name} className="w-full h-64 object-cover" />
+                <div className="w-full h-64 flex items-center justify-center overflow-hidden">
+                  <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-black mb-2">{member.name}</h3>
                   <p className="text-red-600 font-semibold mb-3">{member.position}</p>
