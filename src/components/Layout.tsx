@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Globe } from 'lucide-react';
@@ -47,7 +48,7 @@ const Layout = ({ children }: LayoutProps) => {
   }, [lastScrollY]);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       {/* Navigation */}
       <nav className={`bg-white shadow-lg sticky top-0 z-50 transition-transform duration-300 ${
         isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
@@ -128,10 +129,10 @@ const Layout = ({ children }: LayoutProps) => {
       </nav>
 
       {/* Main Content */}
-      <main>{children}</main>
+      <main className="overflow-x-hidden">{children}</main>
 
       {/* Footer */}
-      <footer className="bg-black text-white py-12">
+      <footer className="bg-black text-white py-12 overflow-x-hidden">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="col-span-1 md:col-span-2">

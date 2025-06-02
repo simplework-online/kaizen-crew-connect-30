@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { MapPin, Clock, CheckCircle, Users, Briefcase, Star, Award, Target } from 'lucide-react';
 
@@ -52,7 +51,7 @@ const Partnership = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-gray-900 to-black text-white py-20">
         <div className="max-w-6xl mx-auto px-4">
@@ -207,7 +206,7 @@ const Partnership = () => {
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-16 bg-white">
+      <section id="contact-form" className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-black mb-4">Kontaktieren Sie uns</h2>

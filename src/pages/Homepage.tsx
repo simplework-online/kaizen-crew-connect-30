@@ -119,6 +119,10 @@ const Homepage = () => {
     window.open(website, '_blank');
   };
 
+  const handleContactClick = () => {
+    navigate('/partnership#contact-form');
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section with Background Slideshow */}
@@ -391,12 +395,12 @@ const Homepage = () => {
           <p className="text-xl text-gray-300 mb-12 font-light leading-relaxed">
             Kontaktieren Sie uns noch heute und entdecken Sie, wie wir Ihr Unternehmen unterstützen können.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="bg-red-600 hover:bg-red-700 text-white px-10 py-4 text-lg font-medium transition-all duration-300 hover:scale-105">
+          <div className="flex justify-center">
+            <button 
+              onClick={handleContactClick}
+              className="bg-red-600 hover:bg-red-700 text-white px-10 py-4 text-lg font-medium transition-all duration-300 hover:scale-105"
+            >
               Kontakt aufnehmen
-            </button>
-            <button className="border border-white text-white hover:bg-white hover:text-black px-10 py-4 text-lg font-medium transition-all duration-300">
-              Mehr erfahren
             </button>
           </div>
         </div>
