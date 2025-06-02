@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { MapPin, Clock, CheckCircle, Users, Briefcase } from 'lucide-react';
 
@@ -63,37 +62,6 @@ const Partnership = () => {
         </div>
       </section>
 
-      {/* New Description Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-red-600 mb-6">Ihre Gäste sind unsere Gäste!</h2>
-          </div>
-          
-          <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
-            <p>
-              Verstärken Sie im Rahmen der Arbeitnehmerüberlassung Ihr Team flexibel, projektbezogen oder über einen längeren Zeitraum mit unserer Crew und lassen Sie uns gemeinsam für einzigartige Events sorgen.
-            </p>
-            
-            <p>
-              Eine gelungene Veranstaltung beginnt mit einer Anfrage und endet mit einem unvergesslichen Erlebnis.
-            </p>
-            
-            <p>
-              Wir bieten spezialisierte Lösungen für die Hotellerie, Gastronomie, Betriebsverpflegung, Messeveranstaltungen, Catering, private Feiern und vieles mehr. Unsere hausintern geschulte Crew steht Ihnen zur Verfügung, ganz unabhängig um welche Art von Veranstaltung es sich handelt.
-            </p>
-            
-            <p>
-              Kontaktieren Sie uns gerne jederzeit telefonisch, per E-Mail oder über das unten anliegende Kontaktformular und lernen Sie uns anschließend persönlich kennen.
-            </p>
-            
-            <p className="text-center font-semibold text-black">
-              Wir freuen uns auf Sie!
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Available Jobs Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
@@ -119,6 +87,77 @@ const Partnership = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Enhanced Description Section */}
+      <section className="py-20 bg-gradient-to-br from-red-50 to-gray-50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-white/30"></div>
+        <div className="relative max-w-5xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-red-600 mb-4">Ihre Gäste sind unsere Gäste!</h2>
+            <div className="w-24 h-1 bg-red-600 mx-auto rounded"></div>
+          </div>
+          
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-xl border border-white/20">
+            <div className="space-y-8 text-lg text-gray-700 leading-relaxed">
+              <div className="bg-gradient-to-r from-red-50 to-transparent p-6 rounded-lg border-l-4 border-red-600">
+                <p className="font-medium">
+                  Verstärken Sie im Rahmen der Arbeitnehmerüberlassung Ihr Team flexibel, projektbezogen oder über einen längeren Zeitraum mit unserer Crew und lassen Sie uns gemeinsam für einzigartige Events sorgen.
+                </p>
+              </div>
+              
+              <div className="text-center py-4">
+                <p className="text-xl font-semibold text-gray-800 italic">
+                  Eine gelungene Veranstaltung beginnt mit einer Anfrage und endet mit einem unvergesslichen Erlebnis.
+                </p>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-4">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Unsere Spezialisierungen:</h3>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-center">
+                      <div className="w-2 h-2 bg-red-600 rounded-full mr-3"></div>
+                      Hotellerie
+                    </li>
+                    <li className="flex items-center">
+                      <div className="w-2 h-2 bg-red-600 rounded-full mr-3"></div>
+                      Gastronomie
+                    </li>
+                    <li className="flex items-center">
+                      <div className="w-2 h-2 bg-red-600 rounded-full mr-3"></div>
+                      Betriebsverpflegung
+                    </li>
+                    <li className="flex items-center">
+                      <div className="w-2 h-2 bg-red-600 rounded-full mr-3"></div>
+                      Messeveranstaltungen
+                    </li>
+                    <li className="flex items-center">
+                      <div className="w-2 h-2 bg-red-600 rounded-full mr-3"></div>
+                      Catering & private Feiern
+                    </li>
+                  </ul>
+                </div>
+                
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <p className="text-gray-700 leading-relaxed">
+                    Unsere hausintern geschulte Crew steht Ihnen zur Verfügung, ganz unabhängig um welche Art von Veranstaltung es sich handelt.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="bg-gradient-to-r from-gray-50 to-red-50 p-6 rounded-lg text-center">
+                <p className="text-gray-700 mb-4">
+                  Kontaktieren Sie uns gerne jederzeit telefonisch, per E-Mail oder über das unten anliegende Kontaktformular und lernen Sie uns anschließend persönlich kennen.
+                </p>
+                
+                <p className="text-xl font-bold text-red-600">
+                  Wir freuen uns auf Sie!
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
