@@ -83,7 +83,7 @@ const Mitspieler = () => {
     logistik: {
       title: "Logistik Outfit",
       description: "Praktisch und sicher für Logistik-Tätigkeiten",
-      image: "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=400",
+      image: "/lovable-uploads/97a39fa8-febf-41ce-ae11-2d531b83d26a.png",
       clothing: [
         "Robuste Arbeitskleidung oder Uniform",
         "Sicherheitsschuhe mit Stahlkappe",
@@ -168,9 +168,9 @@ const Mitspieler = () => {
                 className="w-full bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg p-8 mb-4 hover:from-orange-500 hover:to-orange-700 transition-all transform hover:scale-105"
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=200" 
+                  src="/lovable-uploads/97a39fa8-febf-41ce-ae11-2d531b83d26a.png" 
                   alt="Logistik Uniform" 
-                  className="w-full h-48 object-cover rounded-lg"
+                  className="w-full h-48 object-cover object-top rounded-lg"
                 />
               </button>
               <h3 className="text-xl font-bold text-gray-800">Logistik Outfit</h3>
@@ -327,7 +327,7 @@ const Mitspieler = () => {
 
       {/* Outfit Dialog */}
       <Dialog open={isOutfitDialogOpen} onOpenChange={setIsOutfitDialogOpen}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-center">
               {selectedOutfit && outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.title}
@@ -340,42 +340,74 @@ const Mitspieler = () => {
                 <img 
                   src={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.image}
                   alt={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.title}
-                  className="w-full max-w-md mx-auto h-64 object-cover rounded-lg"
+                  className="w-full max-w-md mx-auto h-80 object-cover rounded-lg"
                 />
                 <p className="mt-4 text-gray-600 text-lg">
                   {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.description}
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-blue-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-bold text-blue-800 mb-4 flex items-center">
-                    👔 Arbeitskleidung
-                  </h3>
-                  <ul className="space-y-2">
-                    {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.clothing.map((item, index) => (
-                      <li key={index} className="flex items-start">
-                        <span className="text-blue-600 mr-2">•</span>
-                        <span className="text-gray-700">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              {selectedOutfit === 'logistik' ? (
+                <div className="space-y-6">
+                  <div className="bg-blue-50 p-6 rounded-lg">
+                    <h3 className="text-xl font-bold text-blue-800 mb-4 flex items-center">
+                      👔 Arbeitskleidung
+                    </h3>
+                    <ul className="space-y-2">
+                      {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.clothing.map((item, index) => (
+                        <li key={index} className="flex items-start">
+                          <span className="text-blue-600 mr-2">•</span>
+                          <span className="text-gray-700">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-                <div className="bg-green-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-bold text-green-800 mb-4 flex items-center">
-                    🛠️ Equipment
-                  </h3>
-                  <ul className="space-y-2">
-                    {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.equipment.map((item, index) => (
-                      <li key={index} className="flex items-start">
-                        <span className="text-green-600 mr-2">•</span>
-                        <span className="text-gray-700">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="bg-green-50 p-6 rounded-lg">
+                    <h3 className="text-xl font-bold text-green-800 mb-4 flex items-center">
+                      🛠️ Equipment
+                    </h3>
+                    <ul className="space-y-2">
+                      {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.equipment.map((item, index) => (
+                        <li key={index} className="flex items-start">
+                          <span className="text-green-600 mr-2">•</span>
+                          <span className="text-gray-700">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-blue-50 p-6 rounded-lg">
+                    <h3 className="text-xl font-bold text-blue-800 mb-4 flex items-center">
+                      👔 Arbeitskleidung
+                    </h3>
+                    <ul className="space-y-2">
+                      {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.clothing.map((item, index) => (
+                        <li key={index} className="flex items-start">
+                          <span className="text-blue-600 mr-2">•</span>
+                          <span className="text-gray-700">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="bg-green-50 p-6 rounded-lg">
+                    <h3 className="text-xl font-bold text-green-800 mb-4 flex items-center">
+                      🛠️ Equipment
+                    </h3>
+                    <ul className="space-y-2">
+                      {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.equipment.map((item, index) => (
+                        <li key={index} className="flex items-start">
+                          <span className="text-green-600 mr-2">•</span>
+                          <span className="text-gray-700">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )}
 
               <div className="text-center bg-yellow-50 p-4 rounded-lg">
                 <p className="text-sm text-gray-600">
