@@ -1,7 +1,10 @@
+
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, Star, Play } from 'lucide-react';
 
 const Homepage = () => {
+  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const partners = [
@@ -112,10 +115,16 @@ const Homepage = () => {
             Ihre professionelle Personalagentur für Events, Gastronomie und Service
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="bg-red-600 hover:bg-red-700 text-white px-10 py-4 text-lg font-medium transition-all duration-300 hover:scale-105">
+            <button 
+              onClick={() => navigate('/partnership')}
+              className="bg-red-600 hover:bg-red-700 text-white px-10 py-4 text-lg font-medium transition-all duration-300 hover:scale-105"
+            >
               Jetzt Partner werden
             </button>
-            <button className="border border-white text-white hover:bg-white hover:text-black px-10 py-4 text-lg font-medium transition-all duration-300">
+            <button 
+              onClick={() => navigate('/mitspieler')}
+              className="border border-white text-white hover:bg-white hover:text-black px-10 py-4 text-lg font-medium transition-all duration-300"
+            >
               Als Mitspieler bewerben
             </button>
           </div>
