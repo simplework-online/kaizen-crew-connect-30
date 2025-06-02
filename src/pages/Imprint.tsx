@@ -1,17 +1,21 @@
+
 import React from 'react';
 import { MapPin, Phone, Mail } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Imprint = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 py-16">
         <div className="bg-white rounded-lg shadow-lg p-8">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-8">Impressum</h1>
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-8">{t('imprint.title')}</h1>
           
           <div className="space-y-8">
             {/* Company Information */}
             <section>
-              <h2 className="text-2xl font-bold text-black mb-4">Angaben gemäß § 5 TMG</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">{t('imprint.company.title')}</h2>
               <div className="space-y-2 text-gray-700">
                 <p className="font-semibold text-lg">KAIZEN Personalagentur GmbH</p>
                 <div className="flex items-start space-x-2">
@@ -27,7 +31,7 @@ const Imprint = () => {
 
             {/* Contact Information */}
             <section>
-              <h2 className="text-2xl font-bold text-black mb-4">Kontakt</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">{t('imprint.contact.title')}</h2>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <Phone className="w-5 h-5 text-red-600" />
@@ -42,25 +46,25 @@ const Imprint = () => {
 
             {/* Legal Representatives */}
             <section>
-              <h2 className="text-2xl font-bold text-black mb-4">Vertreten durch</h2>
-              <p className="text-gray-700">Geschäftsführer: Max Müller</p>
+              <h2 className="text-2xl font-bold text-black mb-4">{t('imprint.representative.title')}</h2>
+              <p className="text-gray-700">{t('imprint.representative.text')}</p>
             </section>
 
             {/* Registration */}
             <section>
-              <h2 className="text-2xl font-bold text-black mb-4">Registereintrag</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">{t('imprint.registration.title')}</h2>
               <div className="space-y-2 text-gray-700">
-                <p>Eintragung im Handelsregister</p>
-                <p>Registergericht: Amtsgericht München</p>
-                <p>Registernummer: HRB 234567</p>
+                <p>{t('imprint.registration.text1')}</p>
+                <p>{t('imprint.registration.text2')}</p>
+                <p>{t('imprint.registration.text3')}</p>
               </div>
             </section>
 
             {/* VAT ID */}
             <section>
-              <h2 className="text-2xl font-bold text-black mb-4">Umsatzsteuer-ID</h2>
+              <h2 className="text-2xl font-bold text-black mb-4">{t('imprint.vat.title')}</h2>
               <p className="text-gray-700">
-                Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
+                {t('imprint.vat.text')}<br />
                 DE 123456789
               </p>
             </section>
@@ -76,7 +80,6 @@ const Imprint = () => {
               </div>
             </section>
 
-            {/* Liability Disclaimer */}
             <section>
               <h2 className="text-2xl font-bold text-black mb-4">Haftungsausschluss</h2>
               
@@ -114,7 +117,6 @@ const Imprint = () => {
               </div>
             </section>
 
-            {/* Responsible for Content */}
             <section>
               <h2 className="text-2xl font-bold text-black mb-4">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
               <div className="text-gray-700">
@@ -124,7 +126,6 @@ const Imprint = () => {
               </div>
             </section>
 
-            {/* Dispute Resolution */}
             <section>
               <h2 className="text-2xl font-bold text-black mb-4">Streitschlichtung</h2>
               <p className="text-gray-700">

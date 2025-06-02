@@ -3,6 +3,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Globe } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -10,22 +11,18 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [language, setLanguage] = useState('DE');
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
+  const { language, toggleLanguage, t } = useLanguage();
 
   const navigation = [
-    { name: 'Home', path: '/', nameDE: 'Startseite' },
-    { name: 'Partnership', path: '/partnership', nameDE: 'Partnerschaft' },
-    { name: 'Mitspieler', path: '/mitspieler', nameDE: 'Mitspieler' },
-    { name: 'About Us', path: '/about', nameDE: 'Über uns' },
-    { name: 'Services', path: '/services', nameDE: 'Leistungen' },
+    { name: 'nav.home', path: '/' },
+    { name: 'nav.partnership', path: '/partnership' },
+    { name: 'nav.mitspieler', path: '/mitspieler' },
+    { name: 'nav.about', path: '/about' },
+    { name: 'nav.services', path: '/services' },
   ];
-
-  const toggleLanguage = () => {
-    setLanguage(language === 'DE' ? 'EN' : 'DE');
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,7 +73,7 @@ const Layout = ({ children }: LayoutProps) => {
                       : 'text-black hover:text-red-600'
                   }`}
                 >
-                  {language === 'DE' ? item.nameDE : item.name}
+                  {t(item.name)}
                 </Link>
               ))}
               
@@ -113,7 +110,7 @@ const Layout = ({ children }: LayoutProps) => {
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {language === 'DE' ? item.nameDE : item.name}
+                  {t(item.name)}
                 </Link>
               ))}
               <button
@@ -144,16 +141,13 @@ const Layout = ({ children }: LayoutProps) => {
                 />
               </div>
               <p className="text-gray-300 mb-4">
-                {language === 'DE' 
-                  ? 'Ihre professionelle Personalagentur für Events, Gastronomie und mehr.'
-                  : 'Your professional staffing agency for events, gastronomy and more.'
-                }
+                {t('footer.description')}
               </p>
             </div>
             
             <div>
               <h3 className="text-lg font-semibold mb-4">
-                {language === 'DE' ? 'Kontakt' : 'Contact'}
+                {t('footer.contact')}
               </h3>
               <p className="text-gray-300 mb-2">info@kaizen-personalagentur.de</p>
               <p className="text-gray-300">+49 (0) 123 456 789</p>
@@ -161,21 +155,21 @@ const Layout = ({ children }: LayoutProps) => {
             
             <div>
               <h3 className="text-lg font-semibold mb-4">
-                {language === 'DE' ? 'Rechtliches' : 'Legal'}
+                {t('footer.legal')}
               </h3>
               <div className="space-y-2">
                 <Link to="/imprint" className="block text-gray-300 hover:text-white transition-colors">
-                  {language === 'DE' ? 'Impressum' : 'Imprint'}
+                  {t('footer.imprint')}
                 </Link>
                 <Link to="/privacy" className="block text-gray-300 hover:text-white transition-colors">
-                  {language === 'DE' ? 'Datenschutz' : 'Privacy Policy'}
+                  {t('footer.privacy')}
                 </Link>
               </div>
             </div>
           </div>
           
           <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
-            <p>&copy; 2024 KAIZEN Personalagentur. {language === 'DE' ? 'Alle Rechte vorbehalten.' : 'All rights reserved.'}</p>
+            <p>&copy; 2024 KAIZEN Personalagentur. {t('footer.rights')}</p>
           </div>
         </div>
       </footer>
