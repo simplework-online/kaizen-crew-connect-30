@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, Star, Play } from 'lucide-react';
 
 const Homepage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const navigate = useNavigate();
 
   const partners = [
     {
@@ -105,17 +107,27 @@ const Homepage = () => {
       {/* Hero Section */}
       <section className="relative h-screen bg-black flex items-center justify-center">
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <h1 className="text-6xl md:text-8xl font-bold mb-8 tracking-tight">
-            KAIZEN<span className="text-red-600">.</span>
-          </h1>
+          <div className="mb-8">
+            <img 
+              src="/lovable-uploads/90ba3f54-e57c-4db9-8bbf-e225c1b46d40.png" 
+              alt="KAIZEN Personalagentur Logo" 
+              className="h-16 md:h-20 w-auto mx-auto"
+            />
+          </div>
           <p className="text-xl md:text-2xl mb-12 text-gray-300 font-light leading-relaxed">
             Ihre professionelle Personalagentur für Events, Gastronomie und Service
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="bg-red-600 hover:bg-red-700 text-white px-10 py-4 text-lg font-medium transition-all duration-300 hover:scale-105">
+            <button 
+              onClick={() => navigate('/partnership')}
+              className="bg-red-600 hover:bg-red-700 text-white px-10 py-4 text-lg font-medium transition-all duration-300 hover:scale-105"
+            >
               Jetzt Partner werden
             </button>
-            <button className="border border-white text-white hover:bg-white hover:text-black px-10 py-4 text-lg font-medium transition-all duration-300">
+            <button 
+              onClick={() => navigate('/mitspieler')}
+              className="border border-white text-white hover:bg-white hover:text-black px-10 py-4 text-lg font-medium transition-all duration-300"
+            >
               Als Mitspieler bewerben
             </button>
           </div>
