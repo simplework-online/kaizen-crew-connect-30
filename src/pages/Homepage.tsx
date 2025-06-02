@@ -6,30 +6,6 @@ const Homepage = () => {
 
   const partners = [
     {
-      id: 1,
-      name: 'Hotel Excellence',
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400',
-      website: 'https://example.com'
-    },
-    {
-      id: 2,
-      name: 'Restaurant Deluxe',
-      image: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?w=400',
-      website: 'https://example.com'
-    },
-    {
-      id: 3,
-      name: 'Event Center Pro',
-      image: 'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=400',
-      website: 'https://example.com'
-    },
-    {
-      id: 4,
-      name: 'Catering Masters',
-      image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400',
-      website: 'https://example.com'
-    },
-    {
       id: 5,
       name: 'Party Rent',
       image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400',
