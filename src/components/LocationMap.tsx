@@ -1,6 +1,7 @@
 
-import React, { useEffect, useRef, useState } from 'react';
-import { MapPin } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 
 interface LocationMapProps {
   locations: Array<{
@@ -11,104 +12,66 @@ interface LocationMapProps {
 }
 
 const LocationMap = ({ locations }: LocationMapProps) => {
-  const [mapboxToken, setMapboxToken] = useState('');
-  const [showTokenInput, setShowTokenInput] = useState(true);
   const mapContainer = useRef<HTMLDivElement>(null);
-  const map = useRef<any>(null);
-
-  const initializeMap = async () => {
-    if (!mapContainer.current || !mapboxToken) return;
-
-    try {
-      const mapboxgl = await import('mapbox-gl');
-      await import('mapbox-gl/dist/mapbox-gl.css');
-
-      mapboxgl.default.accessToken = mapboxToken;
-
-      map.current = new mapboxgl.default.Map({
-        container: mapContainer.current,
-        style: 'mapbox://styles/mapbox/streets-v12',
-        center: [9.7320, 52.3759], // Hannover coordinates
-        zoom: 10,
-      });
-
-      // Add markers for all locations
-      const hanoverMarker = new mapboxgl.default.Marker({ color: '#dc2626' })
-        .setLngLat([9.7320, 52.3759])
-        .setPopup(new mapboxgl.default.Popup().setHTML('<h3>Hannover</h3><p>Königstr. 48, 30175 Hannover</p>'))
-        .addTo(map.current);
-
-      const berlinMarker = new mapboxgl.default.Marker({ color: '#dc2626' })
-        .setLngLat([13.3777, 52.5164])
-        .setPopup(new mapboxgl.default.Popup().setHTML('<h3>Berlin</h3><p>Unter den Linden 77, 10117 Berlin</p>'))
-        .addTo(map.current);
-
-      const hamburgMarker = new mapboxgl.default.Marker({ color: '#dc2626' })
-        .setLngLat([9.9937, 53.5511])
-        .setPopup(new mapboxgl.default.Popup().setHTML('<h3>Hamburg</h3><p>Jungfernstieg 15, 20354 Hamburg</p>'))
-        .addTo(map.current);
-
-      const braunschweigMarker = new mapboxgl.default.Marker({ color: '#dc2626' })
-        .setLngLat([10.5218, 52.2689])
-        .setPopup(new mapboxgl.default.Popup().setHTML('<h3>Braunschweig</h3><p>Hohe Str. 95, 50667 Köln</p>'))
-        .addTo(map.current);
-
-      // Add the new location from Google Maps iframe (coordinates: 52.376, 9.749)
-      const newLocationMarker = new mapboxgl.default.Marker({ color: '#16a34a' })
-        .setLngLat([9.749, 52.376])
-        .setPopup(new mapboxgl.default.Popup().setHTML('<h3>Neue Location</h3><p>Standort aus Google Maps</p>'))
-        .addTo(map.current);
-
-      // Add navigation controls
-      map.current.addControl(new mapboxgl.default.NavigationControl(), 'top-right');
-
-    } catch (error) {
-      console.error('Error initializing map:', error);
-    }
-  };
+  const map = useRef<L.Map | null>(null);
 
   useEffect(() => {
-    if (mapboxToken && showTokenInput === false) {
-      initializeMap();
-    }
+    if (!mapContainer.current) return;
 
+    // Initialize the map
+    map.current = L.map(mapContainer.current).setView([52.3759, 9.7320], 7);
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map.current);
+
+    // Create custom red icon for KAIZEN locations
+    const redIcon = L.divIcon({
+      className: 'custom-marker-red',
+      html: '<div style="background-color: #dc2626; width: 25px; height: 25px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>',
+      iconSize: [25, 25],
+      iconAnchor: [12, 12]
+    });
+
+    // Create custom green icon for new location
+    const greenIcon = L.divIcon({
+      className: 'custom-marker-green',
+      html: '<div style="background-color: #16a34a; width: 25px; height: 25px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>',
+      iconSize: [25, 25],
+      iconAnchor: [12, 12]
+    });
+
+    // Add markers for all KAIZEN locations
+    L.marker([52.3759, 9.7320], { icon: redIcon })
+      .addTo(map.current)
+      .bindPopup('<h3 style="margin: 0 0 8px 0; font-weight: bold;">Hannover</h3><p style="margin: 0;">Königstr. 48, 30175 Hannover</p>');
+
+    L.marker([52.5164, 13.3777], { icon: redIcon })
+      .addTo(map.current)
+      .bindPopup('<h3 style="margin: 0 0 8px 0; font-weight: bold;">Berlin</h3><p style="margin: 0;">Unter den Linden 77, 10117 Berlin</p>');
+
+    L.marker([53.5511, 9.9937], { icon: redIcon })
+      .addTo(map.current)
+      .bindPopup('<h3 style="margin: 0 0 8px 0; font-weight: bold;">Hamburg</h3><p style="margin: 0;">Jungfernstieg 15, 20354 Hamburg</p>');
+
+    L.marker([52.2689, 10.5218], { icon: redIcon })
+      .addTo(map.current)
+      .bindPopup('<h3 style="margin: 0 0 8px 0; font-weight: bold;">Braunschweig</h3><p style="margin: 0;">Hohe Str. 95, 50667 Köln</p>');
+
+    // Add the new location from Google Maps iframe (coordinates: 52.376, 9.749)
+    L.marker([52.376, 9.749], { icon: greenIcon })
+      .addTo(map.current)
+      .bindPopup('<h3 style="margin: 0 0 8px 0; font-weight: bold;">Neue Location</h3><p style="margin: 0;">Standort aus Google Maps</p>');
+
+    // Cleanup function
     return () => {
       if (map.current) {
         map.current.remove();
+        map.current = null;
       }
     };
-  }, [mapboxToken, showTokenInput]);
-
-  if (showTokenInput) {
-    return (
-      <div className="bg-gray-100 rounded-lg h-96 flex items-center justify-center p-8">
-        <div className="text-center max-w-md">
-          <MapPin className="w-16 h-16 text-gray-500 mx-auto mb-4" />
-          <h3 className="text-lg font-semibold mb-4">Interaktive Karte mit KAIZEN Standorten</h3>
-          <p className="text-gray-600 mb-4 text-sm">
-            Um die Karte anzuzeigen, benötigen Sie einen Mapbox Public Token.
-            Erstellen Sie einen kostenlosen Account auf mapbox.com.
-          </p>
-          <div className="space-y-3">
-            <input
-              type="text"
-              placeholder="Mapbox Public Token eingeben..."
-              value={mapboxToken}
-              onChange={(e) => setMapboxToken(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
-            />
-            <button
-              onClick={() => setShowTokenInput(false)}
-              disabled={!mapboxToken}
-              className="w-full bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
-            >
-              Karte laden
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  }, []);
 
   return (
     <div className="bg-gray-300 rounded-lg h-96 overflow-hidden">
