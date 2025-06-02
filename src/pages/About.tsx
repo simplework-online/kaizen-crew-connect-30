@@ -1,8 +1,11 @@
 import React from 'react';
 import { MapPin, Users, Calendar, Award } from 'lucide-react';
 import LocationMap from '../components/LocationMap';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const About = () => {
+  const { t } = useLanguage();
+
   const team = [{
     name: 'Paiman Sharifzada',
     position: 'Geschäftsführender Gesellschafter',
@@ -68,16 +71,16 @@ const About = () => {
     year: '2024',
     event: 'Über 50 Partnerunternehmen deutschlandweit'
   }];
-  return <div className="min-h-screen bg-white overflow-x-hidden">
+
+  return (
+    <div className="min-h-screen bg-white overflow-x-hidden">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-gray-900 to-black text-white py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 px-2">Über KAIZEN Personalagentur</h1>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 px-2">{t('about.title')}</h1>
             <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-3xl mx-auto px-4">
-              Seit 2018 verbinden wir qualifizierte Fachkräfte mit führenden Unternehmen 
-              in der Event- und Gastronomiebranche. Unser Name steht für kontinuierliche Verbesserung 
-              und Exzellenz in der Personalvermittlung.
+              {t('about.subtitle')}
             </p>
           </div>
         </div>
@@ -88,21 +91,15 @@ const About = () => {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="bg-white p-8 rounded-lg shadow-lg">
-              <h2 className="text-3xl font-bold text-black mb-6">Unsere Mission</h2>
+              <h2 className="text-3xl font-bold text-black mb-6">{t('about.mission.title')}</h2>
               <p className="text-gray-700 text-lg leading-relaxed">
-                Wir schaffen Brücken zwischen Unternehmen und Talenten. Unsere Mission ist es, 
-                durch professionelle Personalvermittlung sowohl Arbeitgebern als auch Arbeitnehmern 
-                zu nachhaltigem Erfolg zu verhelfen. Dabei steht Qualität, Vertrauen und 
-                Zuverlässigkeit im Mittelpunkt unseres Handelns.
+                {t('about.mission.text')}
               </p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-lg">
-              <h2 className="text-3xl font-bold text-black mb-6">Unsere Vision</h2>
+              <h2 className="text-3xl font-bold text-black mb-6">{t('about.vision.title')}</h2>
               <p className="text-gray-700 text-lg leading-relaxed">
-                Wir streben danach, die führende Personalagentur in Deutschland zu werden. 
-                Durch Innovation, kontinuierliche Weiterentwicklung und einen persönlichen Ansatz 
-                wollen wir Standards in der Branche setzen und langfristige Partnerschaften aufbauen, 
-                die allen Beteiligten zum Vorteil gereichen.
+                {t('about.vision.text')}
               </p>
             </div>
           </div>
@@ -113,12 +110,13 @@ const About = () => {
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-black mb-4">Unser Team</h2>
-            <p className="text-xl text-gray-600">Die Menschen hinter KAIZEN Personalagentur</p>
+            <h2 className="text-4xl font-bold text-black mb-4">{t('about.team.title')}</h2>
+            <p className="text-xl text-gray-600">{t('about.team.subtitle')}</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => <div key={index} className="bg-gray-50 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+            {team.map((member, index) => (
+              <div key={index} className="bg-gray-50 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <div className="flex justify-center items-center h-64 bg-gray-200">
                   <img src={member.image} alt={member.name} className="w-full h-full object-cover object-center" />
                 </div>
@@ -127,7 +125,8 @@ const About = () => {
                   <p className="text-red-600 font-semibold mb-3">{member.position}</p>
                   <p className="text-gray-700 text-sm">{member.description}</p>
                 </div>
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -136,19 +135,21 @@ const About = () => {
       <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-black mb-4">Unsere Standorte</h2>
-            <p className="text-xl text-gray-600">Deutschlandweit für Sie da</p>
+            <h2 className="text-4xl font-bold text-black mb-4">{t('about.locations.title')}</h2>
+            <p className="text-xl text-gray-600">{t('about.locations.subtitle')}</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            {locations.map((location, index) => <div key={index} className="bg-white p-6 rounded-lg shadow-lg">
+            {locations.map((location, index) => (
+              <div key={index} className="bg-white p-6 rounded-lg shadow-lg">
                 <div className="flex items-center mb-4">
                   <MapPin className="w-6 h-6 text-red-600 mr-2" />
                   <h3 className="text-xl font-bold text-black">{location.city}</h3>
                 </div>
                 <p className="text-gray-700 mb-2">{location.address}</p>
                 <p className="text-gray-600">{location.phone}</p>
-              </div>)}
+              </div>
+            ))}
           </div>
 
           {/* Interactive Map */}
@@ -160,20 +161,22 @@ const About = () => {
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-black mb-4">Unsere Geschichte</h2>
-            <p className="text-xl text-gray-600">Von der Gründung bis heute</p>
+            <h2 className="text-4xl font-bold text-black mb-4">{t('about.history.title')}</h2>
+            <p className="text-xl text-gray-600">{t('about.history.subtitle')}</p>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="space-y-8">
-              {milestones.map((milestone, index) => <div key={index} className="flex items-start space-x-4">
+              {milestones.map((milestone, index) => (
+                <div key={index} className="flex items-start space-x-4">
                   <div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-sm">
                     {milestone.year}
                   </div>
                   <div className="flex-1">
                     <p className="text-gray-700 text-lg">{milestone.event}</p>
                   </div>
-                </div>)}
+                </div>
+              ))}
             </div>
             
             <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center p-4">
@@ -189,8 +192,8 @@ const About = () => {
       <section className="py-16 bg-black text-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">KAIZEN in Zahlen</h2>
-            <p className="text-xl text-gray-300">Unsere Erfolge sprechen für sich</p>
+            <h2 className="text-4xl font-bold mb-4">{t('about.stats.title')}</h2>
+            <p className="text-xl text-gray-300">{t('about.stats.subtitle')}</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -199,33 +202,34 @@ const About = () => {
                 <Users className="w-10 h-10" />
               </div>
               <h3 className="text-3xl font-bold mb-2">2500+</h3>
-              <p className="text-gray-300">Vermittelte Mitarbeiter</p>
+              <p className="text-gray-300">{t('about.stats.employees')}</p>
             </div>
             <div className="text-center">
               <div className="bg-red-600 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
                 <Calendar className="w-10 h-10" />
               </div>
               <h3 className="text-3xl font-bold mb-2">6+</h3>
-              <p className="text-gray-300">Jahre Erfahrung</p>
+              <p className="text-gray-300">{t('about.stats.experience')}</p>
             </div>
             <div className="text-center">
               <div className="bg-red-600 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
                 <MapPin className="w-10 h-10" />
               </div>
               <h3 className="text-3xl font-bold mb-2">50+</h3>
-              <p className="text-gray-300">Partnerunternehmen</p>
+              <p className="text-gray-300">{t('about.stats.partners')}</p>
             </div>
             <div className="text-center">
               <div className="bg-red-600 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
                 <Award className="w-10 h-10" />
               </div>
               <h3 className="text-3xl font-bold mb-2">98%</h3>
-              <p className="text-gray-300">Kundenzufriedenheit</p>
+              <p className="text-gray-300">{t('about.stats.satisfaction')}</p>
             </div>
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
 
 export default About;

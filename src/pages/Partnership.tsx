@@ -1,10 +1,9 @@
+
 import React, { useState, useEffect } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { CheckCircle, Users, Clock, Award, Star, Mail, Phone, MapPin, Send, Building, User } from 'lucide-react';
-import { useLanguage } from '../contexts/LanguageContext';
 
 const Partnership = () => {
-  const { language } = useLanguage();
   const [formData, setFormData] = useState({
     companyName: '',
     contactPerson: '',
@@ -40,192 +39,58 @@ const Partnership = () => {
     alert('Vielen Dank für Ihr Interesse! Wir melden uns bald bei Ihnen.');
   };
 
-  const content = {
-    DE: {
-      title: "Partnerschaft",
-      subtitle: "Werden Sie unser Partner und profitieren Sie von erstklassigem Personal für Ihre Events, Restaurants und Hotels. Gemeinsam schaffen wir außergewöhnliche Erlebnisse.",
-      becomePartner: "Partner werden",
-      whyKaizen: "Warum KAIZEN als Partner?",
-      advantagesSubtitle: "Ihre Vorteile einer Partnerschaft mit uns",
-      benefits: [
-        {
-          title: "Qualifizierte Fachkräfte",
-          description: "Zugang zu unserem Pool von über 2500 geprüften und erfahrenen Arbeitskräften"
-        },
-        {
-          title: "Schnelle Verfügbarkeit",
-          description: "Kurzfristige Personalvermittlung innerhalb von 24-48 Stunden möglich"
-        },
-        {
-          title: "Garantierte Qualität",
-          description: "Alle unsere Mitarbeiter sind vorab geschult und haben nachgewiesene Erfahrung"
-        },
-        {
-          title: "Zuverlässiger Service",
-          description: "98% Kundenzufriedenheit und langjährige Partnerschaften sprechen für uns"
-        }
-      ],
-      servicesTitle: "Unsere Services",
-      servicesSubtitle: "Maßgeschneiderte Personallösungen für Ihren Bedarf",
-      services: [
-        "Event-Personal für Messen und Kongresse",
-        "Service-Kräfte für Restaurants und Hotels",
-        "Barkeeper und Cocktail-Service",
-        "Küchenhilfen und Köche",
-        "Logistik- und Lagerpersonal",
-        "Temporäre Verstärkung für Spitzenzeiten"
-      ],
-      testimonialsTitle: "Was unsere Partner sagen",
-      testimonialsSubtitle: "Erfahrungen erfolgreicher Partnerschaften",
-      testimonials: [
-        {
-          name: "Hotel Adlon Kempinski",
-          location: "Berlin",
-          text: "KAIZEN hat uns dabei geholfen, kurzfristig qualifiziertes Personal für unsere Events zu finden. Absolut zuverlässig!"
-        },
-        {
-          name: "Restaurant Zur Letzten Instanz",
-          location: "Berlin",
-          text: "Dank KAIZEN konnten wir unseren Personalmangel schnell beheben. Die Qualität der Arbeitskräfte ist hervorragend."
-        },
-        {
-          name: "Maritim Hotel Hamburg",
-          location: "Hamburg",
-          text: "Eine perfekte Partnerschaft! KAIZEN versteht unsere Anforderungen und liefert immer passende Kandidaten."
-        }
-      ],
-      contactTitle: "Kontaktieren Sie uns",
-      contactSubtitle: "Lassen Sie uns über eine Partnerschaft sprechen",
-      formTitle: "Partnership Anfrage",
-      formFields: {
-        companyName: "Firmenname",
-        contactPerson: "Ansprechpartner",
-        email: "E-Mail Adresse",
-        phone: "Telefonnummer",
-        industry: "Branche",
-        needs: "Personalbedarf",
-        message: "Nachricht"
-      },
-      industryOptions: [
-        { value: "", label: "Bitte wählen" },
-        { value: "hotel", label: "Hotel & Gastronomie" },
-        { value: "event", label: "Event & Messe" },
-        { value: "catering", label: "Catering" },
-        { value: "einzelhandel", label: "Einzelhandel" },
-        { value: "sonstiges", label: "Sonstiges" }
-      ],
-      needsOptions: [
-        { value: "", label: "Bitte wählen" },
-        { value: "service", label: "Service-Personal" },
-        { value: "kitchen", label: "Küchenpersonal" },
-        { value: "bar", label: "Bar-Personal" },
-        { value: "event", label: "Event-Personal" },
-        { value: "logistics", label: "Logistik" },
-        { value: "mixed", label: "Gemischter Bedarf" }
-      ],
-      messagePlaceholder: "Beschreiben Sie uns Ihren Personalbedarf oder stellen Sie Ihre Fragen...",
-      submitButton: "Anfrage senden",
-      responseTime: "Wir melden uns innerhalb von 24 Stunden bei Ihnen!",
-      contactInfo: {
-        email: "E-Mail",
-        phone: "Telefon",
-        address: "Adresse"
-      }
+  const benefits = [
+    {
+      icon: <Users className="w-8 h-8 text-red-600" />,
+      title: "Qualifizierte Fachkräfte",
+      description: "Zugang zu unserem Pool von über 2500 geprüften und erfahrenen Arbeitskräften"
     },
-    EN: {
-      title: "Partnership",
-      subtitle: "Become our partner and benefit from first-class staff for your events, restaurants and hotels. Together we create extraordinary experiences.",
-      becomePartner: "Become a Partner",
-      whyKaizen: "Why KAIZEN as Partner?",
-      advantagesSubtitle: "Your advantages of a partnership with us",
-      benefits: [
-        {
-          title: "Qualified Professionals",
-          description: "Access to our pool of over 2500 verified and experienced workers"
-        },
-        {
-          title: "Quick Availability",
-          description: "Short-term personnel placement possible within 24-48 hours"
-        },
-        {
-          title: "Guaranteed Quality",
-          description: "All our employees are pre-trained and have proven experience"
-        },
-        {
-          title: "Reliable Service",
-          description: "98% customer satisfaction and long-term partnerships speak for us"
-        }
-      ],
-      servicesTitle: "Our Services",
-      servicesSubtitle: "Tailored personnel solutions for your needs",
-      services: [
-        "Event staff for trade fairs and congresses",
-        "Service staff for restaurants and hotels",
-        "Bartenders and cocktail service",
-        "Kitchen assistants and chefs",
-        "Logistics and warehouse staff",
-        "Temporary reinforcement for peak times"
-      ],
-      testimonialsTitle: "What our partners say",
-      testimonialsSubtitle: "Experiences of successful partnerships",
-      testimonials: [
-        {
-          name: "Hotel Adlon Kempinski",
-          location: "Berlin",
-          text: "KAIZEN helped us find qualified staff for our events at short notice. Absolutely reliable!"
-        },
-        {
-          name: "Restaurant Zur Letzten Instanz",
-          location: "Berlin",
-          text: "Thanks to KAIZEN, we were able to quickly remedy our staff shortage. The quality of the workers is excellent."
-        },
-        {
-          name: "Maritim Hotel Hamburg",
-          location: "Hamburg",
-          text: "A perfect partnership! KAIZEN understands our requirements and always delivers suitable candidates."
-        }
-      ],
-      contactTitle: "Contact Us",
-      contactSubtitle: "Let's talk about a partnership",
-      formTitle: "Partnership Request",
-      formFields: {
-        companyName: "Company Name",
-        contactPerson: "Contact Person",
-        email: "Email Address",
-        phone: "Phone Number",
-        industry: "Industry",
-        needs: "Personnel Needs",
-        message: "Message"
-      },
-      industryOptions: [
-        { value: "", label: "Please select" },
-        { value: "hotel", label: "Hotel & Gastronomy" },
-        { value: "event", label: "Event & Trade Fair" },
-        { value: "catering", label: "Catering" },
-        { value: "einzelhandel", label: "Retail" },
-        { value: "sonstiges", label: "Other" }
-      ],
-      needsOptions: [
-        { value: "", label: "Please select" },
-        { value: "service", label: "Service Staff" },
-        { value: "kitchen", label: "Kitchen Staff" },
-        { value: "bar", label: "Bar Staff" },
-        { value: "event", label: "Event Staff" },
-        { value: "logistics", label: "Logistics" },
-        { value: "mixed", label: "Mixed Needs" }
-      ],
-      messagePlaceholder: "Describe your personnel needs or ask your questions...",
-      submitButton: "Send Request",
-      responseTime: "We will contact you within 24 hours!",
-      contactInfo: {
-        email: "Email",
-        phone: "Phone",
-        address: "Address"
-      }
+    {
+      icon: <Clock className="w-8 h-8 text-red-600" />,
+      title: "Schnelle Verfügbarkeit",
+      description: "Kurzfristige Personalvermittlung innerhalb von 24-48 Stunden möglich"
+    },
+    {
+      icon: <Award className="w-8 h-8 text-red-600" />,
+      title: "Garantierte Qualität",
+      description: "Alle unsere Mitarbeiter sind vorab geschult und haben nachgewiesene Erfahrung"
+    },
+    {
+      icon: <CheckCircle className="w-8 h-8 text-red-600" />,
+      title: "Zuverlässiger Service",
+      description: "98% Kundenzufriedenheit und langjährige Partnerschaften sprechen für uns"
     }
-  };
+  ];
 
-  const t = content[language];
+  const testimonials = [
+    {
+      name: "Hotel Adlon Kempinski",
+      location: "Berlin",
+      text: "KAIZEN hat uns dabei geholfen, kurzfristig qualifiziertes Personal für unsere Events zu finden. Absolut zuverlässig!",
+      rating: 5
+    },
+    {
+      name: "Restaurant Zur Letzten Instanz",
+      location: "Berlin",
+      text: "Dank KAIZEN konnten wir unseren Personalmangel schnell beheben. Die Qualität der Arbeitskräfte ist hervorragend.",
+      rating: 5
+    },
+    {
+      name: "Maritim Hotel Hamburg",
+      location: "Hamburg",
+      text: "Eine perfekte Partnerschaft! KAIZEN versteht unsere Anforderungen und liefert immer passende Kandidaten.",
+      rating: 5
+    }
+  ];
+
+  const services = [
+    "Event-Personal für Messen und Kongresse",
+    "Service-Kräfte für Restaurants und Hotels",
+    "Barkeeper und Cocktail-Service",
+    "Küchenhilfen und Köche",
+    "Logistik- und Lagerpersonal",
+    "Temporäre Verstärkung für Spitzenzeiten"
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-red-50 overflow-x-hidden">
@@ -233,10 +98,11 @@ const Partnership = () => {
       <section className="py-20 bg-gradient-to-r from-black to-gray-800 text-white">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 px-2">
-            {t.title}
+            Partnerschaft
           </h1>
           <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-3xl mx-auto px-4">
-            {t.subtitle}
+            Werden Sie unser Partner und profitieren Sie von erstklassigem Personal für Ihre Events, 
+            Restaurants und Hotels. Gemeinsam schaffen wir außergewöhnliche Erlebnisse.
           </p>
           <a 
             href="#contact-section"
@@ -246,7 +112,7 @@ const Partnership = () => {
               document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
-            {t.becomePartner}
+            Partner werden
           </a>
         </div>
       </section>
@@ -255,19 +121,16 @@ const Partnership = () => {
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-black mb-4">{t.whyKaizen}</h2>
-            <p className="text-xl text-gray-600">{t.advantagesSubtitle}</p>
+            <h2 className="text-4xl font-bold text-black mb-4">Warum KAIZEN als Partner?</h2>
+            <p className="text-xl text-gray-600">Ihre Vorteile einer Partnerschaft mit uns</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {t.benefits.map((benefit, index) => (
+            {benefits.map((benefit, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow">
                 <CardContent className="pt-8">
                   <div className="flex justify-center mb-4">
-                    {index === 0 && <Users className="w-8 h-8 text-red-600" />}
-                    {index === 1 && <Clock className="w-8 h-8 text-red-600" />}
-                    {index === 2 && <Award className="w-8 h-8 text-red-600" />}
-                    {index === 3 && <CheckCircle className="w-8 h-8 text-red-600" />}
+                    {benefit.icon}
                   </div>
                   <h3 className="text-xl font-bold text-black mb-3">{benefit.title}</h3>
                   <p className="text-gray-600">{benefit.description}</p>
@@ -282,12 +145,12 @@ const Partnership = () => {
       <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-black mb-4">{t.servicesTitle}</h2>
-            <p className="text-xl text-gray-600">{t.servicesSubtitle}</p>
+            <h2 className="text-4xl font-bold text-black mb-4">Unsere Services</h2>
+            <p className="text-xl text-gray-600">Maßgeschneiderte Personallösungen für Ihren Bedarf</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {t.services.map((service, index) => (
+            {services.map((service, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="w-6 h-6 text-red-600 flex-shrink-0" />
@@ -303,16 +166,16 @@ const Partnership = () => {
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-black mb-4">{t.testimonialsTitle}</h2>
-            <p className="text-xl text-gray-600">{t.testimonialsSubtitle}</p>
+            <h2 className="text-4xl font-bold text-black mb-4">Was unsere Partner sagen</h2>
+            <p className="text-xl text-gray-600">Erfahrungen erfolgreicher Partnerschaften</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {t.testimonials.map((testimonial, index) => (
+            {testimonials.map((testimonial, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6">
                   <div className="flex items-center mb-4">
-                    {[...Array(5)].map((_, i) => (
+                    {[...Array(testimonial.rating)].map((_, i) => (
                       <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                     ))}
                   </div>
@@ -332,13 +195,13 @@ const Partnership = () => {
       <section id="contact-section" className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-black mb-4">{t.contactTitle}</h2>
-            <p className="text-xl text-gray-600">{t.contactSubtitle}</p>
+            <h2 className="text-4xl font-bold text-black mb-4">Kontaktieren Sie uns</h2>
+            <p className="text-xl text-gray-600">Lassen Sie uns über eine Partnerschaft sprechen</p>
           </div>
           
           <Card className="shadow-xl">
             <CardHeader className="bg-gradient-to-r from-red-600 to-red-700 text-white">
-              <CardTitle className="text-2xl font-bold text-center">{t.formTitle}</CardTitle>
+              <CardTitle className="text-2xl font-bold text-center">Partnership Anfrage</CardTitle>
             </CardHeader>
             <CardContent className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -346,7 +209,7 @@ const Partnership = () => {
                   <div>
                     <label className="block text-lg font-semibold text-gray-800 mb-2 flex items-center">
                       <Building className="w-5 h-5 mr-2" />
-                      {t.formFields.companyName} *
+                      Firmenname *
                     </label>
                     <input
                       type="text"
@@ -361,7 +224,7 @@ const Partnership = () => {
                   <div>
                     <label className="block text-lg font-semibold text-gray-800 mb-2 flex items-center">
                       <User className="w-5 h-5 mr-2" />
-                      {t.formFields.contactPerson} *
+                      Ansprechpartner *
                     </label>
                     <input
                       type="text"
@@ -378,7 +241,7 @@ const Partnership = () => {
                   <div>
                     <label className="block text-lg font-semibold text-gray-800 mb-2 flex items-center">
                       <Mail className="w-5 h-5 mr-2" />
-                      {t.formFields.email} *
+                      E-Mail Adresse *
                     </label>
                     <input
                       type="email"
@@ -393,7 +256,7 @@ const Partnership = () => {
                   <div>
                     <label className="block text-lg font-semibold text-gray-800 mb-2 flex items-center">
                       <Phone className="w-5 h-5 mr-2" />
-                      {t.formFields.phone} *
+                      Telefonnummer *
                     </label>
                     <input
                       type="tel"
@@ -409,7 +272,7 @@ const Partnership = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-lg font-semibold text-gray-800 mb-2">
-                      {t.formFields.industry} *
+                      Branche *
                     </label>
                     <select
                       name="industry"
@@ -418,15 +281,18 @@ const Partnership = () => {
                       className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-red-500 focus:ring-2 focus:ring-red-200 outline-none transition-all"
                       required
                     >
-                      {t.industryOptions.map((option) => (
-                        <option key={option.value} value={option.value}>{option.label}</option>
-                      ))}
+                      <option value="">Bitte wählen</option>
+                      <option value="hotel">Hotel & Gastronomie</option>
+                      <option value="event">Event & Messe</option>
+                      <option value="catering">Catering</option>
+                      <option value="einzelhandel">Einzelhandel</option>
+                      <option value="sonstiges">Sonstiges</option>
                     </select>
                   </div>
                   
                   <div>
                     <label className="block text-lg font-semibold text-gray-800 mb-2">
-                      {t.formFields.needs}
+                      Personalbedarf
                     </label>
                     <select
                       name="needs"
@@ -434,23 +300,27 @@ const Partnership = () => {
                       onChange={handleInputChange}
                       className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-red-500 focus:ring-2 focus:ring-red-200 outline-none transition-all"
                     >
-                      {t.needsOptions.map((option) => (
-                        <option key={option.value} value={option.value}>{option.label}</option>
-                      ))}
+                      <option value="">Bitte wählen</option>
+                      <option value="service">Service-Personal</option>
+                      <option value="kitchen">Küchenpersonal</option>
+                      <option value="bar">Bar-Personal</option>
+                      <option value="event">Event-Personal</option>
+                      <option value="logistics">Logistik</option>
+                      <option value="mixed">Gemischter Bedarf</option>
                     </select>
                   </div>
                 </div>
 
                 <div>
                   <label className="block text-lg font-semibold text-gray-800 mb-2">
-                    {t.formFields.message}
+                    Nachricht
                   </label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
                     rows={4}
-                    placeholder={t.messagePlaceholder}
+                    placeholder="Beschreiben Sie uns Ihren Personalbedarf oder stellen Sie Ihre Fragen..."
                     className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-red-500 focus:ring-2 focus:ring-red-200 outline-none transition-all resize-none"
                   />
                 </div>
@@ -461,10 +331,10 @@ const Partnership = () => {
                     className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-12 py-4 rounded-xl text-xl font-bold transition-all shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center mx-auto"
                   >
                     <Send className="w-6 h-6 mr-2" />
-                    {t.submitButton}
+                    Anfrage senden
                   </button>
                   <p className="text-gray-500 mt-4">
-                    {t.responseTime}
+                    Wir melden uns innerhalb von 24 Stunden bei Ihnen!
                   </p>
                 </div>
               </form>
@@ -479,19 +349,19 @@ const Partnership = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="flex flex-col items-center">
               <Mail className="w-8 h-8 text-red-600 mb-3" />
-              <h3 className="text-xl font-bold mb-2">{t.contactInfo.email}</h3>
+              <h3 className="text-xl font-bold mb-2">E-Mail</h3>
               <p className="text-gray-300">partnership@kaizen-personalagentur.de</p>
             </div>
             
             <div className="flex flex-col items-center">
               <Phone className="w-8 h-8 text-red-600 mb-3" />
-              <h3 className="text-xl font-bold mb-2">{t.contactInfo.phone}</h3>
+              <h3 className="text-xl font-bold mb-2">Telefon</h3>
               <p className="text-gray-300">+49 (0) 89 123 456 789</p>
             </div>
             
             <div className="flex flex-col items-center">
               <MapPin className="w-8 h-8 text-red-600 mb-3" />
-              <h3 className="text-xl font-bold mb-2">{t.contactInfo.address}</h3>
+              <h3 className="text-xl font-bold mb-2">Adresse</h3>
               <p className="text-gray-300">Maximilianstraße 12<br />80539 München</p>
             </div>
           </div>
