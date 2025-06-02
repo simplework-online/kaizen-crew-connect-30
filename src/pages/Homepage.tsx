@@ -1,11 +1,11 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, Star, Play } from 'lucide-react';
 
 const Homepage = () => {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [backgroundSlide, setBackgroundSlide] = useState(0);
 
   const partners = [
     {
@@ -91,6 +91,22 @@ const Homepage = () => {
     }
   ];
 
+  const backgroundImages = [
+    'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=1920&h=1080&fit=crop',
+    'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1920&h=1080&fit=crop',
+    'https://images.unsplash.com/photo-1500673922987-e212871fec22?w=1920&h=1080&fit=crop',
+    'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1920&h=1080&fit=crop'
+  ];
+
+  // Auto-advance background slideshow
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBackgroundSlide((prev) => (prev + 1) % backgroundImages.length);
+    }, 5000); // Change every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [backgroundImages.length]);
+
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % partners.length);
   };
@@ -105,8 +121,27 @@ const Homepage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative h-screen bg-black flex items-center justify-center">
+      {/* Hero Section with Background Slideshow */}
+      <section className="relative h-screen bg-black flex items-center justify-center overflow-hidden">
+        {/* Background Images */}
+        <div className="absolute inset-0">
+          {backgroundImages.map((image, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === backgroundSlide ? 'opacity-30' : 'opacity-0'
+              }`}
+            >
+              <img
+                src={image}
+                alt={`Event background ${index + 1}`}
+                className="w-full h-full object-cover filter grayscale"
+              />
+            </div>
+          ))}
+          <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+        </div>
+
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
           <h1 className="text-6xl md:text-8xl font-bold mb-8 tracking-tight">
             KAIZEN<span className="text-red-600">.</span>
