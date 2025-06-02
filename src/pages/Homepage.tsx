@@ -120,7 +120,14 @@ const Homepage = () => {
   };
 
   const handleContactClick = () => {
-    navigate('/partnership#contact-form');
+    navigate('/partnership');
+    // Use setTimeout to ensure navigation completes before scrolling
+    setTimeout(() => {
+      const contactSection = document.getElementById('contact-form');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   };
 
   return (
