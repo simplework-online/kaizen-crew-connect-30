@@ -87,14 +87,14 @@ const Mitspieler = () => {
     service: {
       title: "Service Outfit",
       description: "Elegant und professionell für den Service-Bereich",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+      image: "/lovable-uploads/8f2917d4-1d51-4599-84fd-7bc4e18c72a0.png",
       clothing: ["Schwarze oder dunkelblaue Hose", "Weißes oder schwarzes Hemd/Bluse", "Schwarze, geschlossene Schuhe", "Schwarze Weste oder Blazer (falls erforderlich)", "Dezente Frisur und Make-up"],
       equipment: ["Kellnertablett", "Notizblock und Stift", "Kellnermesser/Korkenzieher", "Servietten", "Taschenlampe (für Abendveranstaltungen)"]
     },
     logistik: {
       title: "Logistik Outfit",
       description: "Praktisch und sicher für Logistik-Tätigkeiten",
-      image: "/lovable-uploads/97a39fa8-febf-41ce-ae11-2d531b83d26a.png",
+      image: "/lovable-uploads/bae93f50-47c9-4ef6-8b68-ee0cc056d03a.png",
       clothing: ["Robuste Arbeitskleidung oder Uniform", "Sicherheitsschuhe mit Stahlkappe", "Warnweste (falls erforderlich)", "Lange Hose (keine Shorts)", "Praktisches T-Shirt oder Arbeitshemd"],
       equipment: ["Arbeitshandschuhe", "Helm oder Kappe", "Rückengurt (bei schwerem Heben)", "Scanner oder Clipboard", "Walkie-Talkie (falls erforderlich)"]
     }
@@ -136,14 +136,14 @@ const Mitspieler = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
               <button onClick={() => openOutfitDialog('service')} className="w-full bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg p-8 mb-4 hover:from-blue-500 hover:to-blue-700 transition-all transform hover:scale-105">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200" alt="Service Uniform" className="w-full h-48 object-cover rounded-lg" />
+                <img src="/lovable-uploads/8f2917d4-1d51-4599-84fd-7bc4e18c72a0.png" alt="Service Uniform" className="w-full h-48 object-contain rounded-lg" />
               </button>
               <h3 className="text-xl font-bold text-gray-800">Service Outfit</h3>
               <p className="text-gray-600">Elegant und professionell</p>
             </div>
             <div className="text-center">
               <button onClick={() => openOutfitDialog('logistik')} className="w-full bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg p-8 mb-4 hover:from-orange-500 hover:to-orange-700 transition-all transform hover:scale-105">
-                <img src="/lovable-uploads/97a39fa8-febf-41ce-ae11-2d531b83d26a.png" alt="Logistik Uniform" className="w-full h-48 object-top rounded-lg object-fill" />
+                <img src="/lovable-uploads/bae93f50-47c9-4ef6-8b68-ee0cc056d03a.png" alt="Logistik Uniform" className="w-full h-48 object-contain rounded-lg" />
               </button>
               <h3 className="text-xl font-bold text-gray-800">Logistik Outfit</h3>
               <p className="text-gray-600">Praktisch und sicher</p>
