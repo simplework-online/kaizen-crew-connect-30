@@ -1,5 +1,7 @@
 import React from 'react';
 import { MapPin, Users, Calendar, Award } from 'lucide-react';
+import LocationMap from '../components/LocationMap';
+
 const About = () => {
   const team = [{
     name: 'Paiman Sharifzada',
@@ -147,18 +149,8 @@ const About = () => {
               </div>)}
           </div>
 
-          {/* Map Placeholder */}
-          <div className="bg-gray-300 rounded-lg h-96 flex items-center justify-center">
-            <div className="text-center">
-              <MapPin className="w-16 h-16 text-gray-500 mx-auto mb-4" />
-              <p className="text-gray-600 text-lg">
-                Interaktive Karte mit allen KAIZEN Standorten
-              </p>
-              <p className="text-gray-500 text-sm mt-2">
-                Hier würde eine echte Karte mit Standortmarkierungen angezeigt
-              </p>
-            </div>
-          </div>
+          {/* Interactive Map */}
+          <LocationMap locations={locations} />
         </div>
       </section>
 
@@ -233,4 +225,5 @@ const About = () => {
       </section>
     </div>;
 };
+
 export default About;
