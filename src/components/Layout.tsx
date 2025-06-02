@@ -24,10 +24,6 @@ const Layout = ({ children }: LayoutProps) => {
     { name: 'Services', path: '/services', nameDE: 'Leistungen' },
   ];
 
-  const toggleLanguage = () => {
-    setLanguage(language === 'DE' ? 'EN' : 'DE');
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
