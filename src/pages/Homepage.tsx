@@ -186,14 +186,35 @@ const Homepage = () => {
             <h2 className="text-4xl font-bold text-black mb-4">Entdecken Sie KAIZEN</h2>
             <p className="text-xl text-gray-600">Lernen Sie uns und unsere Arbeit kennen</p>
           </div>
-          <div className="relative bg-black rounded-lg overflow-hidden aspect-video">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <button className="bg-red-600 hover:bg-red-700 rounded-full p-6 transition-colors">
-                <Play className="w-12 h-12 text-white ml-1" />
-              </button>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Video */}
+            <div className="order-2 lg:order-1">
+              <div className="relative bg-black rounded-lg overflow-hidden aspect-video">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <button className="bg-red-600 hover:bg-red-700 rounded-full p-6 transition-colors">
+                    <Play className="w-12 h-12 text-white ml-1" />
+                  </button>
+                </div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <p className="text-sm opacity-75">Video Placeholder - Firmenvorstellung</p>
+                </div>
+              </div>
             </div>
-            <div className="absolute bottom-4 left-4 text-white">
-              <p className="text-sm opacity-75">Video Placeholder - Firmenvorstellung</p>
+            
+            {/* Text Content */}
+            <div className="order-1 lg:order-2">
+              <div className="prose prose-lg max-w-none">
+                <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                  Der Begriff <strong className="text-red-600">KAIZEN</strong> kommt aus der japanischen Lebensphilosophie und bedeutet wörtlich übersetzt "Wandel zum Besseren" (KAI = Wandel; ZEN = zum Besseren).
+                </p>
+                <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                  Dieser ewig andauernde Prozess der Veränderung bietet grenzenloses Potential nach Oben.
+                </p>
+                <p className="text-gray-700 text-lg leading-relaxed font-medium">
+                  Wir l(i)eben diesen Wandel.
+                </p>
+              </div>
             </div>
           </div>
         </div>
