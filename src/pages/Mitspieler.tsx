@@ -121,6 +121,9 @@ const Mitspieler = () => {
     setSelectedOutfit(outfitType);
     setIsOutfitDialogOpen(true);
   };
+  const handleApplyClick = () => {
+    navigate('/bewerbung');
+  };
   return <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-cyan-50">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white py-24 relative overflow-hidden">
@@ -133,7 +136,10 @@ const Mitspieler = () => {
             <p className="text-2xl mb-10 text-indigo-100 max-w-3xl mx-auto leading-relaxed">
               Starte deine Karriere in der Event- und Gastronomiebranche mit uns!
             </p>
-            <button className="bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-300 hover:to-orange-300 text-black px-12 py-6 rounded-full text-xl font-bold transition-all shadow-2xl transform hover:scale-105 hover:shadow-yellow-400/25">
+            <button 
+              onClick={handleApplyClick}
+              className="bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-300 hover:to-orange-300 text-black px-12 py-6 rounded-full text-xl font-bold transition-all shadow-2xl transform hover:scale-105 hover:shadow-yellow-400/25"
+            >
               Jetzt bewerben! ✨
             </button>
           </div>
@@ -206,13 +212,18 @@ const Mitspieler = () => {
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-gray-800 mb-6">Welche Skills brauchst du? 💪</h2>
             <p className="text-xl text-gray-600">Wähle einen Job und entdecke die wichtigsten Fähigkeiten</p>
+            <p className="text-lg text-indigo-600 font-medium mt-2">👆 Klicke auf einen Job-Typ!</p>
           </div>
           
           <div className="mb-12">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-              {jobTypes.map(job => <button key={job.id} onClick={() => setSelectedJob(selectedJob === job.id ? null : job.id)} className={`p-8 rounded-2xl border-2 transition-all transform hover:scale-105 shadow-lg ${selectedJob === job.id ? `${job.color} text-white border-white shadow-2xl scale-105` : 'bg-white text-gray-700 border-gray-200 hover:shadow-xl hover:border-indigo-200'}`}>
-                  <div className="text-4xl mb-4">{job.emoji}</div>
+              {jobTypes.map(job => <button key={job.id} onClick={() => setSelectedJob(selectedJob === job.id ? null : job.id)} className={`p-8 rounded-2xl border-2 transition-all transform hover:scale-105 shadow-lg cursor-pointer relative group ${selectedJob === job.id ? `${job.color} text-white border-white shadow-2xl scale-105` : 'bg-white text-gray-700 border-gray-200 hover:shadow-xl hover:border-indigo-200 hover:bg-indigo-50'}`}>
+                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <MousePointer2 className="w-5 h-5 text-indigo-500" />
+                  </div>
+                  <div className="text-4xl mb-4 group-hover:animate-pulse">{job.emoji}</div>
                   <h3 className="text-xl font-bold">{job.name}</h3>
+                  <p className="text-sm mt-2 opacity-75">Klicken für Details</p>
                 </button>)}
             </div>
             
@@ -301,7 +312,10 @@ const Mitspieler = () => {
           <p className="text-2xl mb-10 text-indigo-100 leading-relaxed">
             Bewirb dich jetzt und starte schon bald deinen ersten Job!
           </p>
-          <button className="bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-300 hover:to-orange-300 text-black px-16 py-8 rounded-full text-2xl font-bold transition-all shadow-2xl transform hover:scale-105 hover:shadow-yellow-400/25">
+          <button 
+            onClick={handleApplyClick}
+            className="bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-300 hover:to-orange-300 text-black px-16 py-8 rounded-full text-2xl font-bold transition-all shadow-2xl transform hover:scale-105 hover:shadow-yellow-400/25"
+          >
             Jetzt bewerben! ✨
           </button>
           <p className="mt-8 text-indigo-200 text-lg">
