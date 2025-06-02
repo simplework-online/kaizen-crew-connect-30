@@ -185,7 +185,7 @@ const About = () => {
             <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
               <div className="text-center">
                 <img 
-                  src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=400" 
+                  src="/lovable-uploads/4c83dd98-cefb-4b4c-8d22-dca988e5439a.png" 
                   alt="KAIZEN Bürogebäude" 
                   className="w-full h-full object-cover rounded-lg"
                 />
