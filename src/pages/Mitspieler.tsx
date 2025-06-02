@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { ChevronDown, Star, Award, Users, Clock, MapPin, X, MousePointer2, Eye } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { useNavigate } from 'react-router-dom';
+
 const Mitspieler = () => {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [selectedJob, setSelectedJob] = useState<string | null>(null);
   const [isOutfitDialogOpen, setIsOutfitDialogOpen] = useState(false);
   const [selectedOutfit, setSelectedOutfit] = useState<string | null>(null);
   const navigate = useNavigate();
+  const skillsSectionRef = useRef<HTMLDivElement>(null);
+
   const faqs = [{
     question: 'Wie läuft der Bewerbungsprozess ab?',
     answer: 'Nach Ihrer Online-Bewerbung laden wir Sie zu einem persönlichen Gespräch ein. Bei Eignung erhalten Sie eine Schulung und können sofort loslegen!'
@@ -109,6 +112,7 @@ const Mitspieler = () => {
       equipment: ["Arbeitshandschuhe", "Helm oder Kappe", "Rückengurt (bei schwerem Heben)", "Scanner oder Clipboard", "Walkie-Talkie (falls erforderlich)"]
     }
   };
+
   const handleJobClick = (jobId: string) => {
     navigate('/bewerbung', {
       state: {
@@ -116,13 +120,30 @@ const Mitspieler = () => {
       }
     });
   };
+
+  const handleJobTypeSelect = (jobId: string) => {
+    setSelectedJob(selectedJob === jobId ? null : jobId);
+    
+    // Auto-scroll to skills section on mobile when a job is selected
+    if (window.innerWidth < 768 && skillsSectionRef.current) {
+      setTimeout(() => {
+        skillsSectionRef.current?.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+      }, 100);
+    }
+  };
+
   const openOutfitDialog = (outfitType: string) => {
     setSelectedOutfit(outfitType);
     setIsOutfitDialogOpen(true);
   };
+
   const handleApplyClick = () => {
     navigate('/bewerbung');
   };
+
   return <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-cyan-50">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white py-24 relative overflow-hidden">
@@ -203,7 +224,7 @@ const Mitspieler = () => {
       </section>
 
       {/* Skills Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white" ref={skillsSectionRef}>
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-gray-800 mb-6">Welche Skills brauchst du? 💪</h2>
@@ -213,7 +234,7 @@ const Mitspieler = () => {
           
           <div className="mb-12">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-              {jobTypes.map(job => <button key={job.id} onClick={() => setSelectedJob(selectedJob === job.id ? null : job.id)} className={`p-8 rounded-2xl border-2 transition-all transform hover:scale-105 shadow-lg cursor-pointer relative group ${selectedJob === job.id ? `${job.color} text-white border-white shadow-2xl scale-105` : 'bg-white text-gray-700 border-gray-200 hover:shadow-xl hover:border-indigo-200 hover:bg-indigo-50'}`}>
+              {jobTypes.map(job => <button key={job.id} onClick={() => handleJobTypeSelect(job.id)} className={`p-8 rounded-2xl border-2 transition-all transform hover:scale-105 shadow-lg cursor-pointer relative group ${selectedJob === job.id ? `${job.color} text-white border-white shadow-2xl scale-105` : 'bg-white text-gray-700 border-gray-200 hover:shadow-xl hover:border-indigo-200 hover:bg-indigo-50'}`}>
                   <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
                     <MousePointer2 className="w-5 h-5 text-indigo-500" />
                   </div>
@@ -227,9 +248,9 @@ const Mitspieler = () => {
                 <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
                   Wichtige Skills für {jobTypes.find(job => job.id === selectedJob)?.name}
                 </h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  {jobSkillsMapping[selectedJob as keyof typeof jobSkillsMapping]?.map(skill => <div key={skill} className="bg-white p-4 rounded-xl shadow-md border border-indigo-100 text-center transform hover:scale-105 transition-all">
-                      <span className="font-semibold text-gray-700">{skill}</span>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {jobSkillsMapping[selectedJob as keyof typeof jobSkillsMapping]?.map(skill => <div key={skill} className="bg-white p-6 rounded-xl shadow-md border border-indigo-100 text-center transform hover:scale-105 transition-all">
+                      <span className="font-semibold text-gray-700 text-sm md:text-base leading-relaxed">{skill}</span>
                     </div>)}
                 </div>
                 <div className="mt-6 text-center">
@@ -410,4 +431,5 @@ const Mitspieler = () => {
       </Dialog>
     </div>;
 };
+
 export default Mitspieler;
