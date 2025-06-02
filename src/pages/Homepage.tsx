@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Star, Play } from 'lucide-react';
 
@@ -29,6 +28,36 @@ const Homepage = () => {
       name: 'Catering Masters',
       image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400',
       website: 'https://example.com'
+    },
+    {
+      id: 5,
+      name: 'Party Rent',
+      image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400',
+      website: 'https://www.party.rent/de'
+    },
+    {
+      id: 6,
+      name: 'Maritim Hotels',
+      image: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=400',
+      website: 'https://www.maritim.de/'
+    },
+    {
+      id: 7,
+      name: 'KaDeWe Berlin',
+      image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400',
+      website: 'https://www.kadewe.de/'
+    },
+    {
+      id: 8,
+      name: 'The Ritz-Carlton Wolfsburg',
+      image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400',
+      website: 'https://www.ritzcarlton.com'
+    },
+    {
+      id: 9,
+      name: 'Aramark',
+      image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400',
+      website: 'https://aramark-dmag.de/'
     }
   ];
 
