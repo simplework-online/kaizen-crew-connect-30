@@ -269,7 +269,7 @@ const Mitspieler = () => {
           
           {selectedOutfit && <div className="space-y-6">
               <div className="text-center">
-                <img src={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.image} alt={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.title} className="w-full max-w-md mx-auto h-80 object-cover rounded-lg" />
+                <img src={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.image} alt={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.title} className="w-full max-w-md mx-auto h-80 rounded-lg object-contain" />
                 <p className="mt-4 text-gray-600 text-lg">
                   {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.description}
                 </p>
