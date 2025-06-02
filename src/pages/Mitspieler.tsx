@@ -1,11 +1,13 @@
-
 import React, { useState } from 'react';
-import { ChevronDown, Star, Award, Users, Clock, MapPin } from 'lucide-react';
+import { ChevronDown, Star, Award, Users, Clock, MapPin, X } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 
 const Mitspieler = () => {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
   const [selectedJobs, setSelectedJobs] = useState<string[]>([]);
+  const [isOutfitDialogOpen, setIsOutfitDialogOpen] = useState(false);
+  const [selectedOutfit, setSelectedOutfit] = useState<string | null>(null);
 
   const faqs = [
     {
@@ -58,6 +60,47 @@ const Mitspieler = () => {
     { icon: '📍', title: 'Flexible Standorte', desc: 'Jobs in ganz Deutschland verfügbar' }
   ];
 
+  const outfitInfo = {
+    service: {
+      title: "Service Outfit",
+      description: "Elegant und professionell für den Service-Bereich",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+      clothing: [
+        "Schwarze oder dunkelblaue Hose",
+        "Weißes oder schwarzes Hemd/Bluse",
+        "Schwarze, geschlossene Schuhe",
+        "Schwarze Weste oder Blazer (falls erforderlich)",
+        "Dezente Frisur und Make-up"
+      ],
+      equipment: [
+        "Kellnertablett",
+        "Notizblock und Stift",
+        "Kellnermesser/Korkenzieher",
+        "Servietten",
+        "Taschenlampe (für Abendveranstaltungen)"
+      ]
+    },
+    logistik: {
+      title: "Logistik Outfit",
+      description: "Praktisch und sicher für Logistik-Tätigkeiten",
+      image: "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=400",
+      clothing: [
+        "Robuste Arbeitskleidung oder Uniform",
+        "Sicherheitsschuhe mit Stahlkappe",
+        "Warnweste (falls erforderlich)",
+        "Lange Hose (keine Shorts)",
+        "Praktisches T-Shirt oder Arbeitshemd"
+      ],
+      equipment: [
+        "Arbeitshandschuhe",
+        "Helm oder Kappe",
+        "Rückengurt (bei schwerem Heben)",
+        "Scanner oder Clipboard",
+        "Walkie-Talkie (falls erforderlich)"
+      ]
+    }
+  };
+
   const toggleSkill = (skill: string) => {
     setSelectedSkills(prev => 
       prev.includes(skill) 
@@ -72,6 +115,11 @@ const Mitspieler = () => {
         ? prev.filter(j => j !== job)
         : [...prev, job]
     );
+  };
+
+  const openOutfitDialog = (outfitType: string) => {
+    setSelectedOutfit(outfitType);
+    setIsOutfitDialogOpen(true);
   };
 
   return (
@@ -99,39 +147,34 @@ const Mitspieler = () => {
             <p className="text-xl text-gray-600">Professionelle Arbeitskleidung für jeden Einsatz</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <div className="bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg p-8 mb-4">
+              <button 
+                onClick={() => openOutfitDialog('service')}
+                className="w-full bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg p-8 mb-4 hover:from-blue-500 hover:to-blue-700 transition-all transform hover:scale-105"
+              >
                 <img 
                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200" 
                   alt="Service Uniform" 
                   className="w-full h-48 object-cover rounded-lg"
                 />
-              </div>
+              </button>
               <h3 className="text-xl font-bold text-gray-800">Service Outfit</h3>
               <p className="text-gray-600">Elegant und professionell</p>
             </div>
             <div className="text-center">
-              <div className="bg-gradient-to-br from-green-400 to-green-600 rounded-lg p-8 mb-4">
+              <button 
+                onClick={() => openOutfitDialog('logistik')}
+                className="w-full bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg p-8 mb-4 hover:from-orange-500 hover:to-orange-700 transition-all transform hover:scale-105"
+              >
                 <img 
-                  src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200" 
-                  alt="Kitchen Uniform" 
+                  src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=200" 
+                  alt="Logistik Uniform" 
                   className="w-full h-48 object-cover rounded-lg"
                 />
-              </div>
-              <h3 className="text-xl font-bold text-gray-800">Küchen Outfit</h3>
-              <p className="text-gray-600">Praktisch und hygienisch</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg p-8 mb-4">
-                <img 
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200" 
-                  alt="Bar Uniform" 
-                  className="w-full h-48 object-cover rounded-lg"
-                />
-              </div>
-              <h3 className="text-xl font-bold text-gray-800">Bar Outfit</h3>
-              <p className="text-gray-600">Schick und funktional</p>
+              </button>
+              <h3 className="text-xl font-bold text-gray-800">Logistik Outfit</h3>
+              <p className="text-gray-600">Praktisch und sicher</p>
             </div>
           </div>
         </div>
@@ -281,6 +324,69 @@ const Mitspieler = () => {
           </p>
         </div>
       </section>
+
+      {/* Outfit Dialog */}
+      <Dialog open={isOutfitDialogOpen} onOpenChange={setIsOutfitDialogOpen}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-center">
+              {selectedOutfit && outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.title}
+            </DialogTitle>
+          </DialogHeader>
+          
+          {selectedOutfit && (
+            <div className="space-y-6">
+              <div className="text-center">
+                <img 
+                  src={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.image}
+                  alt={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.title}
+                  className="w-full max-w-md mx-auto h-64 object-cover rounded-lg"
+                />
+                <p className="mt-4 text-gray-600 text-lg">
+                  {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.description}
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-blue-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-bold text-blue-800 mb-4 flex items-center">
+                    👔 Arbeitskleidung
+                  </h3>
+                  <ul className="space-y-2">
+                    {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.clothing.map((item, index) => (
+                      <li key={index} className="flex items-start">
+                        <span className="text-blue-600 mr-2">•</span>
+                        <span className="text-gray-700">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="bg-green-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-bold text-green-800 mb-4 flex items-center">
+                    🛠️ Equipment
+                  </h3>
+                  <ul className="space-y-2">
+                    {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.equipment.map((item, index) => (
+                      <li key={index} className="flex items-start">
+                        <span className="text-green-600 mr-2">•</span>
+                        <span className="text-gray-700">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="text-center bg-yellow-50 p-4 rounded-lg">
+                <p className="text-sm text-gray-600">
+                  💡 <strong>Hinweis:</strong> Die spezifische Arbeitskleidung und Ausrüstung kann je nach Einsatzort variieren. 
+                  Wir informieren Sie vor jedem Einsatz über die genauen Anforderungen.
+                </p>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
