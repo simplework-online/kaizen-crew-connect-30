@@ -53,6 +53,12 @@ const LocationMap = ({ locations }: LocationMapProps) => {
         .setPopup(new mapboxgl.default.Popup().setHTML('<h3>Braunschweig</h3><p>Hohe Str. 95, 50667 Köln</p>'))
         .addTo(map.current);
 
+      // Add the new location from Google Maps iframe (coordinates: 52.376, 9.749)
+      const newLocationMarker = new mapboxgl.default.Marker({ color: '#16a34a' })
+        .setLngLat([9.749, 52.376])
+        .setPopup(new mapboxgl.default.Popup().setHTML('<h3>Neue Location</h3><p>Standort aus Google Maps</p>'))
+        .addTo(map.current);
+
       // Add navigation controls
       map.current.addControl(new mapboxgl.default.NavigationControl(), 'top-right');
 
