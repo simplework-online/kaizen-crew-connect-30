@@ -26,10 +26,10 @@ const Mitspieler = () => {
     answer: 'Je nach Einsatz stellen wir Ihnen professionelle Arbeitskleidung zur Verfügung oder Sie erhalten genaue Vorgaben für das Outfit.'
   }];
   const jobSkillsMapping = {
-    'logistic': ['Teamwork', 'Stressresistenz', 'Organisationstalent', 'Flexibilität'],
-    'service': ['Kommunikation', 'Kundenservice', 'Teamwork', 'Flexibilität'],
-    'barkeeper': ['Kommunikation', 'Kreativität', 'Stressresistenz', 'Kundenservice'],
-    'kitchen': ['Teamwork', 'Stressresistenz', 'Organisationstalent', 'Flexibilität']
+    'logistic': ['Teamfähigkeit', 'Stressresistenz', 'Organisationstalent', 'Flexibilität', 'Körperliche Belastbarkeit', 'Zuverlässigkeit'],
+    'service': ['Kommunikationsfähigkeit', 'Kundenservice', 'Teamfähigkeit', 'Multitasking', 'Gutes Gedächtnis', 'Freundlichkeit'],
+    'barkeeper': ['Kommunikationsfähigkeit', 'Kreativität', 'Stressresistenz', 'Kundenservice', 'Multitasking', 'Geschicklichkeit'],
+    'kitchen': ['Teamfähigkeit', 'Stressresistenz', 'Organisationstalent', 'Flexibilität', 'Hygienebewusstsein', 'Schnelligkeit']
   };
   const jobTypes = [{
     id: 'logistic',
@@ -204,8 +204,8 @@ const Mitspieler = () => {
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-gray-800 mb-6">Welche Superkräfte brauchst du? 💪</h2>
-            <p className="text-xl text-gray-600">Wähle einen Job und entdecke die benötigten Skills</p>
+            <h2 className="text-5xl font-bold text-gray-800 mb-6">Welche Skills brauchst du? 💪</h2>
+            <p className="text-xl text-gray-600">Wähle einen Job und entdecke die wichtigsten Fähigkeiten</p>
           </div>
           
           <div className="mb-12">
@@ -218,12 +218,17 @@ const Mitspieler = () => {
             
             {selectedJob && <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-8 border border-indigo-200">
                 <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-                  Benötigte Skills für {jobTypes.find(job => job.id === selectedJob)?.name}
+                  Wichtige Skills für {jobTypes.find(job => job.id === selectedJob)?.name}
                 </h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   {jobSkillsMapping[selectedJob as keyof typeof jobSkillsMapping]?.map(skill => <div key={skill} className="bg-white p-4 rounded-xl shadow-md border border-indigo-100 text-center transform hover:scale-105 transition-all">
                       <span className="font-semibold text-gray-700">{skill}</span>
                     </div>)}
+                </div>
+                <div className="mt-6 text-center">
+                  <p className="text-gray-600 text-sm">
+                    💡 Keine Sorge - wir schulen dich in allen wichtigen Bereichen!
+                  </p>
                 </div>
               </div>}
           </div>
