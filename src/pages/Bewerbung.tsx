@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
@@ -69,10 +68,10 @@ const Bewerbung = () => {
           </button>
           
           <div className="text-center">
-            <h1 className="text-5xl font-bold text-gray-800 mb-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-4 px-2">
               Bewerbungsformular 📝
             </h1>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg sm:text-xl text-gray-600 px-4">
               Starte deine Karriere bei KAIZEN - wir freuen uns auf dich!
             </p>
           </div>

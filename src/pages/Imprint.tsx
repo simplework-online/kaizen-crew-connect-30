@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { MapPin, Phone, Mail } from 'lucide-react';
 
@@ -7,7 +6,7 @@ const Imprint = () => {
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 py-16">
         <div className="bg-white rounded-lg shadow-lg p-8">
-          <h1 className="text-4xl font-bold text-black mb-8">Impressum</h1>
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-8">Impressum</h1>
           
           <div className="space-y-8">
             {/* Company Information */}
@@ -130,7 +129,7 @@ const Imprint = () => {
               <h2 className="text-2xl font-bold text-black mb-4">Streitschlichtung</h2>
               <p className="text-gray-700">
                 Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: 
-                <a href="https://ec.europa.eu/consumers/odr/" className="text-red-600 hover:text-red-800 ml-1">
+                <a href="https://ec.europa.eu/consumers/odr/" className="text-red-600 hover:text-red-800 ml-1 break-all">
                   https://ec.europa.eu/consumers/odr/
                 </a>
                 <br /><br />

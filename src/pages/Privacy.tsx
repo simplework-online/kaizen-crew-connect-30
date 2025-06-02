@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Shield, Eye, Database, Lock } from 'lucide-react';
 
@@ -7,7 +6,7 @@ const Privacy = () => {
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 py-16">
         <div className="bg-white rounded-lg shadow-lg p-8">
-          <h1 className="text-4xl font-bold text-black mb-8">Datenschutzerklärung</h1>
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-8">Datenschutzerklärung</h1>
           
           <div className="space-y-8">
             {/* Introduction */}

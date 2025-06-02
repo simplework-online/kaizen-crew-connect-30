@@ -68,13 +68,13 @@ const About = () => {
     year: '2024',
     event: 'Über 50 Partnerunternehmen deutschlandweit'
   }];
-  return <div className="min-h-screen bg-white">
+  return <div className="min-h-screen bg-white overflow-x-hidden">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-gray-900 to-black text-white py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-5xl font-bold mb-6">Über KAIZEN Personalagentur</h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 px-2">Über KAIZEN Personalagentur</h1>
+            <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-3xl mx-auto px-4">
               Seit 2018 verbinden wir qualifizierte Fachkräfte mit führenden Unternehmen 
               in der Event- und Gastronomiebranche. Unser Name steht für kontinuierliche Verbesserung 
               und Exzellenz in der Personalvermittlung.
