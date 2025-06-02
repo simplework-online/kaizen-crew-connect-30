@@ -260,7 +260,7 @@ const Mitspieler = () => {
 
       {/* Outfit Dialog */}
       <Dialog open={isOutfitDialogOpen} onOpenChange={setIsOutfitDialogOpen}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-center">
               {selectedOutfit && outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.title}
@@ -269,23 +269,28 @@ const Mitspieler = () => {
           
           {selectedOutfit && <div className="space-y-6">
               <div className="text-center">
-                <img src={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.image} alt={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.title} className="w-full max-w-md mx-auto h-80 rounded-lg object-contain" />
-                <p className="mt-4 text-gray-600 text-lg">
+                <p className="text-gray-600 text-lg">
                   {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.description}
                 </p>
               </div>
 
               {selectedOutfit === 'logistik' ? <div className="space-y-6">
-                  <div className="bg-blue-50 p-6 rounded-lg">
-                    <h3 className="text-xl font-bold text-blue-800 mb-4 flex items-center">
-                      👔 Arbeitskleidung
-                    </h3>
-                    <ul className="space-y-2">
-                      {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.clothing.map((item, index) => <li key={index} className="flex items-start">
-                          <span className="text-blue-600 mr-2">•</span>
-                          <span className="text-gray-700">{item}</span>
-                        </li>)}
-                    </ul>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div className="text-center">
+                      <img src={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.image} alt={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.title} className="w-full h-80 rounded-lg object-contain" />
+                    </div>
+                    
+                    <div className="bg-blue-50 p-6 rounded-lg">
+                      <h3 className="text-xl font-bold text-blue-800 mb-4 flex items-center">
+                        👔 Arbeitskleidung
+                      </h3>
+                      <ul className="space-y-2">
+                        {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.clothing.map((item, index) => <li key={index} className="flex items-start">
+                            <span className="text-blue-600 mr-2">•</span>
+                            <span className="text-gray-700">{item}</span>
+                          </li>)}
+                      </ul>
+                    </div>
                   </div>
 
                   <div className="bg-green-50 p-6 rounded-lg">
@@ -300,28 +305,34 @@ const Mitspieler = () => {
                     </ul>
                   </div>
                 </div> : <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-blue-50 p-6 rounded-lg">
-                    <h3 className="text-xl font-bold text-blue-800 mb-4 flex items-center">
-                      👔 Arbeitskleidung
-                    </h3>
-                    <ul className="space-y-2">
-                      {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.clothing.map((item, index) => <li key={index} className="flex items-start">
-                          <span className="text-blue-600 mr-2">•</span>
-                          <span className="text-gray-700">{item}</span>
-                        </li>)}
-                    </ul>
+                  <div className="text-center">
+                    <img src={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.image} alt={outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.title} className="w-full h-80 object-cover rounded-lg" />
                   </div>
+                  
+                  <div className="space-y-6">
+                    <div className="bg-blue-50 p-6 rounded-lg">
+                      <h3 className="text-xl font-bold text-blue-800 mb-4 flex items-center">
+                        👔 Arbeitskleidung
+                      </h3>
+                      <ul className="space-y-2">
+                        {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.clothing.map((item, index) => <li key={index} className="flex items-start">
+                            <span className="text-blue-600 mr-2">•</span>
+                            <span className="text-gray-700">{item}</span>
+                          </li>)}
+                      </ul>
+                    </div>
 
-                  <div className="bg-green-50 p-6 rounded-lg">
-                    <h3 className="text-xl font-bold text-green-800 mb-4 flex items-center">
-                      🛠️ Equipment
-                    </h3>
-                    <ul className="space-y-2">
-                      {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.equipment.map((item, index) => <li key={index} className="flex items-start">
-                          <span className="text-green-600 mr-2">•</span>
-                          <span className="text-gray-700">{item}</span>
-                        </li>)}
-                    </ul>
+                    <div className="bg-green-50 p-6 rounded-lg">
+                      <h3 className="text-xl font-bold text-green-800 mb-4 flex items-center">
+                        🛠️ Equipment
+                      </h3>
+                      <ul className="space-y-2">
+                        {outfitInfo[selectedOutfit as keyof typeof outfitInfo]?.equipment.map((item, index) => <li key={index} className="flex items-start">
+                            <span className="text-green-600 mr-2">•</span>
+                            <span className="text-gray-700">{item}</span>
+                          </li>)}
+                      </ul>
+                    </div>
                   </div>
                 </div>}
 
